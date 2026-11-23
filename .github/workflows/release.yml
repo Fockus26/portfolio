@@ -1,0 +1,59 @@
+# Version PR with Changesets. Copy to .github/workflows/release.yml.
+#
+# Work PRs do not touch `version` or CHANGELOG.md: each one with a visible change brings a
+# `.changeset/<desc>.md`. When they reach main, this Action opens (or updates) a single
+# "chore(release): versión" PR that gathers those changesets, bumps `version` and writes the
+# CHANGELOG. César merges it when he wants to publish; no agent edits or merges it.
+#
+# Once per repo, in GitHub: Settings › Actions › General › "Allow GitHub Actions to create
+# and approve pull requests". Without it the Action fails to open the PR.
+#
+# A PR opened with GITHUB_TOKEN does not fire `pull_request` (GitHub prevents it to avoid
+# loops), so CI would not run and the `ci` check `main` requires would stay pending.
+# `workflow_dispatch` is the exception: the last step triggers ci.yml on the PR's branch and
+# its `ci` check lands on the commit protection asks for. Needs `workflow_dispatch` in ci.yml.
+#
+# The orphan branches pr-shots and context-state carry their own vercel.json with
+# deployments disabled; they never trigger this workflow (it only runs on main).
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write # to trigger ci.yml on the version PR
+
+jobs:
+  version-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: oven-sh/setup-bun@v2
+
+      - name: Install
+        run: bun install --frozen-lockfile
+
+      # No `publish-script`: apps are not published to npm, only versioned.
+      # `--bun`: Changesets 3 wants Node ≥ 22.11; this way it runs on bun's runtime.
+      # PR title and commit in Spanish, like every PR César reviews.
+      - uses: changesets/action@v2
+        id: changesets
+        with:
+          version-script: bunx --bun changeset version
+          pr-title: "chore(release): versión"
+          commit-message: "chore(release): versión"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Branch changesets/action uses for the PR: changeset-release/<base branch>.
+      - name: CI for the version PR
+        if: steps.changesets.outputs.pr-number != ''
+        run: gh workflow run ci.yml --ref changeset-release/${{ github.ref_name }}
+        env:
+          GH_TOKEN: ${{ github.token }}
