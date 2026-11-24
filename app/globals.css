@@ -70,6 +70,7 @@
   --tracking-num: 0.02em;
   --tracking-wordmark: -0.01em;
   --tracking-wordmark-lg: -0.03em;
+  --tracking-monogram: -0.06em;
 }
 
 /* Values that read a variable which changes per breakpoint or per element */
@@ -141,6 +142,9 @@
   --text-wordmark: 1.125rem;
   --text-wordmark--line-height: 1.5rem;
   --text-wordmark--font-weight: 500;
+  --text-monogram: 1.0625rem; /* "CL" in the 32px mark of the header below 768 */
+  --text-monogram--line-height: 1;
+  --text-monogram--font-weight: 600;
   --text-tag: 0.6875rem; /* "Póster provisional", development only */
   --text-tag--line-height: 1rem;
 
@@ -148,12 +152,22 @@
   --color-fill-hover: var(--fill-hover);
 
   --animate-spinner: spinner var(--dur-spinner) linear infinite;
+  /* Overlays (HANDOFF § 6.6). The -fast pair is also the reduced-motion version of all */
+  --animate-fade-in: fade-in var(--dur-base) var(--ease-out);
+  --animate-fade-out: fade-out var(--dur-base) var(--ease-out);
+  --animate-fade-in-fast: fade-in var(--dur-fast) linear;
+  --animate-fade-out-fast: fade-out var(--dur-fast) linear;
+  --animate-popover-in: popover-in var(--dur-base) var(--ease-out);
+  --animate-sheet-in: sheet-in var(--dur-slow) var(--ease-out);
+  --animate-sheet-out: sheet-out var(--dur-base) var(--ease-out);
 
   --spacing-header: var(--header-h);
   /* Page grid (HANDOFF § 4): px-side, -mx-side, gap-x-gutter, max-w-page */
   --spacing-side: var(--side-pad);
   --spacing-gutter: var(--gutter);
+  --spacing-sheet: 85svh; /* max-h-sheet: the mobile index sheet */
   --container-page: 135rem; /* 2160px, side padding included */
+  --container-reading: 46ch; /* body text of a project room (HANDOFF § 2.10) */
 }
 
 :root {
@@ -233,6 +247,37 @@
 @keyframes spinner {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes sheet-out {
+  to {
+    transform: translateY(100%);
   }
 }
 
