@@ -145,11 +145,20 @@
   --text-tag--line-height: 1rem;
 
   --spacing-header: var(--header-h);
+  /* Page grid (HANDOFF § 4): px-side, -mx-side, gap-x-gutter, max-w-page */
+  --spacing-side: var(--side-pad);
+  --spacing-gutter: var(--gutter);
+  --container-page: 135rem; /* 2160px, side padding included */
 }
 
 :root {
   --lh-display: 0.95;
   --header-h: 3.5rem; /* 56px below 768 */
+
+  /* Page grid at 360: 4 columns, 16px gutter, 24px side padding */
+  --grid-cols: 4;
+  --gutter: 1rem;
+  --side-pad: 1.5rem;
 
   --dur-fast: 120ms;
   --dur-base: 240ms;
@@ -172,6 +181,73 @@
   :root {
     --lh-display: 0.92;
     --header-h: 4.5rem; /* 72px */
+    --grid-cols: 8;
+    --gutter: 1.5rem;
+    --side-pad: 2.5rem; /* 40px */
+  }
+}
+
+@media (min-width: 64rem) {
+  :root {
+    --grid-cols: 12;
+    --side-pad: 3rem; /* 48px */
+  }
+}
+
+@media (min-width: 90rem) {
+  :root {
+    --side-pad: 5rem; /* 80px */
+  }
+}
+
+@media (min-width: 120rem) {
+  :root {
+    --side-pad: 7.5rem; /* 120px */
+  }
+}
+
+/*
+ * From 2000px (1760 of content + 2 x 120 of padding) the content stops growing and the
+ * side padding takes the rest, up to the 200px of the 2160px container (D005).
+ */
+@media (min-width: 125rem) {
+  :root {
+    --side-pad: calc((min(100vw, 135rem) - 110rem) / 2);
+  }
+}
+
+@media (min-width: 160rem) {
+  :root {
+    --gutter: 2rem;
+    --side-pad: 12.5rem; /* 200px */
+  }
+}
+
+/* The page container: 2160px at most with the side padding included, centered */
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: var(--side-pad);
+}
+
+/* The 4 / 8 / 12 column grid; children place themselves with col-span-* or col-start-* */
+@utility grid-page {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+/*
+ * Every section of the page (HANDOFF § 4 and § 6.6). Stacked: an anchor lands its content
+ * under the header. Desktop: the section reserves the header as padding, so it lands at
+ * the top and is a snap point.
+ */
+@utility page-section {
+  scroll-margin-top: var(--header-h);
+  @media (min-width: 64rem) {
+    scroll-margin-top: 0;
+    scroll-snap-align: start;
   }
 }
 
@@ -234,6 +310,12 @@
     font-family: var(--font-sans);
     font-size: var(--fs-body);
     line-height: 1.6;
+  }
+
+  /* Default focus ring: ink. Components with their own ink (moss) override it (HANDOFF § 8) */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
   }
 
   ::selection {

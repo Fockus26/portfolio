@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Provisional (CONTENT_CHECKLIST #7): the final icon has the light band and the letters converted to outlines (HANDOFF § 5). -->
+  <rect width="512" height="512" rx="32" fill="#1E4A3A"/>
+  <text x="256" y="336" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="600" font-size="264" letter-spacing="-16" fill="#FAFAF7">CL</text>
+</svg>

@@ -1,4 +1,4 @@
-# D001 · Content · Dos idiomas con next-intl y rutas /es y /en · Pending
+# D001 · Content · Dos idiomas con next-intl y rutas /es y /en · Implemented
 
 **Decision:** el sitio va en español (por defecto) e inglés, con `next-intl`, rutas `/es` y
 `/en`, `hreflang` y un selector visible. Los textos viven en `messages/{es,en}.json` y en
