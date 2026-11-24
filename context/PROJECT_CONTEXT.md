@@ -86,10 +86,10 @@ calidez con el scroll (mañana en la entrada, atardecer en el contacto); los vid
 
 ## Repo and deployment
 
-- Repo: PENDING — `https://github.com/Fockus26/portfolio` (public), autorizado, por crear
+- Repo: https://github.com/Fockus26/portfolio (public) · `main` protegida con el check `ci`
 - Versioning: Changesets
-- Vercel: PENDING — proyecto en la cuenta de César, autorizado, por crear
-- Production: PENDING · Previews: one per PR
+- Vercel: project `alejandrorey2654gmailcoms-projects/portfolio` on César's account, conectado al repo
+- Production: https://portfolio-olive-one-83.vercel.app (hasta tener dominio) · Previews: one per PR
 - DNS managed by: César (cuando haya dominio)
 - Maintenance: does not apply
 - Local `context/` backup: not possible: public repo
