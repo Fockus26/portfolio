@@ -66,6 +66,10 @@
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
+  /* Window proportions (HANDOFF § 2.8); 16:9 is Tailwind's aspect-video */
+  --aspect-phone: 9 / 19.5;
+  --aspect-chat: 9 / 16;
+
   --tracking-*: initial;
   --tracking-num: 0.02em;
   --tracking-wordmark: -0.01em;
@@ -152,6 +156,7 @@
   --color-fill-hover: var(--fill-hover);
 
   --animate-spinner: spinner var(--dur-spinner) linear infinite;
+  --animate-loading-line: loading-line var(--dur-loading-line) linear infinite;
   /* Overlays (HANDOFF § 6.6). The -fast pair is also the reduced-motion version of all */
   --animate-fade-in: fade-in var(--dur-base) var(--ease-out);
   --animate-fade-out: fade-out var(--dur-base) var(--ease-out);
@@ -247,6 +252,16 @@
 @keyframes spinner {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* The video loading line runs the bottom edge of the window from 0 to 100 % */
+@keyframes loading-line {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
   }
 }
 
