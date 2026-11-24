@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Póster provisional de proyecto</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: absolute; inset: 0; container-type: inline-size; font-family: 'Schibsted Grotesk', sans-serif; color: #17160F">
+
+<sc-if value="{{ p1 }}" hint-placeholder-val="{{ true }}">
+<div class="ui" style="font-size: 1.5cqw; background: #F4F1EA; color: #1B2B44">
+  <div class="bar" style="background: #1B2B44; color: #F4F1EA"><b>Iglesia Maranatha</b><span>Agenda · Prédicas · Proyectos · Aportar</span></div>
+  <div style="flex: 1; display: flex; gap: 2.5em; padding: 2.6em 3em">
+    <div style="flex: 1.2">
+      <div style="font-size: 2.6em; font-weight: 600; line-height: 1.1">Aporta desde tu teléfono</div>
+      <div style="margin-top: 1em">Diezmos, ofrendas y proyectos de la iglesia.</div>
+      <div style="display: flex; gap: .6em; margin-top: 1.8em"><span class="chip" style="background: #1B2B44; color: #F4F1EA">Dólares</span><span class="chip" style="background: #E2DCCD">Bolívares</span><span class="chip" style="background: #E2DCCD">Pesos</span></div>
+      <div style="margin-top: .8em; font-size: 2.4em; font-weight: 600">$ 25,00</div>
+      <div class="chip" style="margin-top: 1.2em; background: #C9962B; color: #1B2B44; padding: .8em 1.8em; font-weight: 600">Enviar aporte</div>
+    </div>
+    <div class="card" style="flex: 1; background: #FFFFFF; align-self: flex-start">
+      <b>Techo del salón principal</b>
+      <div style="height: .7em; border-radius: 1em; background: #E2DCCD; margin: 1em 0 .5em"><div style="width: 62%; height: 100%; border-radius: 1em; background: #C9962B"></div></div>
+      <div>62 % de la meta</div>
+      <div class="row" style="margin-top: 1em"><span>Culto de jóvenes</span><span>Vie 7:00 p. m.</span></div>
+      <div class="row"><span>Escuela dominical</span><span>Dom 9:00 a. m.</span></div>
+      <div class="row" style="border: 0"><span>Prédica: La fe que obra</span><span>32 min</span></div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p2 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 4cqw; background: #FFF4EC; color: #3A1A10">
+  <div style="background: #E4572E; color: #FFFFFF; padding: 2.4em 1.4em 1.6em"><div>Lección 4 de 12</div><div style="font-size: 1.9em; font-weight: 600; line-height: 1.1; margin-top: .3em">Paso básico de salsa</div></div>
+  <div style="margin: 1.2em 1.4em 0; aspect-ratio: 4/3; border-radius: .8em; background: #3A1A10; display: grid; place-items: center"><div style="width: 4em; height: 4em; border-radius: 50%; background: #FFF4EC; display: grid; place-items: center; color: #E4572E; font-size: 1.2em">▶</div></div>
+  <div style="padding: 1.4em"><b>Cuenta conmigo</b>
+    <div style="display: flex; gap: .5em; margin-top: .8em; font-weight: 600"><span class="chip" style="background: #E4572E; color: #fff">1</span><span class="chip" style="background: #F6D9CC">2</span><span class="chip" style="background: #F6D9CC">3</span><span class="chip" style="background: #F6D9CC">5</span><span class="chip" style="background: #F6D9CC">6</span><span class="chip" style="background: #F6D9CC">7</span></div>
+    <div class="card" style="background: #FFFFFF; margin-top: 1.4em"><b>Para repasar hoy</b><div class="row"><span>Giro a la derecha</span><span>2 min</span></div><div class="row" style="border: 0"><span>Paso lateral</span><span>3 min</span></div></div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p3 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 1.5cqw; flex-direction: row; background: #F5F7FA; color: #0F2A43">
+  <div style="width: 13em; background: #0F2A43; color: #E8EEF5; padding: 1.6em 1.4em; display: flex; flex-direction: column; gap: 1em"><b style="font-size: 1.2em">Inversiones JS</b><span style="margin-top: 1em; font-weight: 600">Catálogo</span><span>Solicitudes</span><span>Citas</span><span>Pagos</span></div>
+  <div style="flex: 1; padding: 2em 2.4em">
+    <div style="display: flex; justify-content: space-between; align-items: center"><div style="font-size: 1.8em; font-weight: 600">Catálogo</div><span class="chip" style="background: #0F2A43; color: #fff; padding: .6em 1.4em">Agregar equipo</span></div>
+    <div class="card" style="background: #FFFFFF; margin-top: 1.4em">
+      <div class="row" style="font-weight: 600"><span style="flex: 2">Equipo</span><span style="flex: 1">Precio</span><span style="flex: 1">Inicial</span><span style="flex: 1">Cuotas</span><span style="flex: 1">Existencia</span></div>
+      <div class="row"><span style="flex: 2">Samsung Galaxy A16</span><span style="flex: 1">$ 180</span><span style="flex: 1">$ 54</span><span style="flex: 1">6 × $ 21</span><span style="flex: 1">8</span></div>
+      <div class="row"><span style="flex: 2">Xiaomi Redmi 14C</span><span style="flex: 1">$ 130</span><span style="flex: 1">$ 39</span><span style="flex: 1">6 × $ 16</span><span style="flex: 1">12</span></div>
+      <div class="row"><span style="flex: 2">Tecno Spark 30</span><span style="flex: 1">$ 145</span><span style="flex: 1">$ 44</span><span style="flex: 1">6 × $ 17</span><span style="flex: 1">5</span></div>
+      <div class="row"><span style="flex: 2">Infinix Hot 50</span><span style="flex: 1">$ 160</span><span style="flex: 1">$ 48</span><span style="flex: 1">6 × $ 19</span><span style="flex: 1">3</span></div>
+      <div class="row" style="border: 0"><span style="flex: 2">Motorola G15</span><span style="flex: 1">$ 170</span><span style="flex: 1">$ 51</span><span style="flex: 1">6 × $ 20</span><span style="flex: 1">Agotado</span></div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p4 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 4cqw; background: #ECE7DF; color: #14261F">
+  <div class="bar" style="background: #0B6B50; color: #FFFFFF; padding: 1.4em"><b style="font-size: 1.2em">Gaby · Inversiones JS</b><span>en línea</span></div>
+  <div style="flex: 1; display: flex; flex-direction: column; gap: .8em; padding: 1.4em">
+    <div class="card" style="background: #D7F0DF; align-self: flex-end; max-width: 80%">Hola, ¿qué teléfonos tienen?</div>
+    <div class="card" style="background: #FFFFFF; align-self: flex-start; max-width: 84%">¡Hola! Hoy tenemos el Galaxy A16, el Redmi 14C y el Spark 30. ¿Te digo las cuotas de alguno?</div>
+    <div class="card" style="background: #D7F0DF; align-self: flex-end; max-width: 80%">El Redmi, por favor</div>
+    <div class="card" style="background: #FFFFFF; align-self: flex-start; max-width: 84%">Redmi 14C: inicial de $ 39 y 6 cuotas de $ 16. ¿Quieres agendar una cita para verlo?</div>
+    <div class="card" style="background: #D7F0DF; align-self: flex-end; max-width: 80%">Sí, mañana en la tarde</div>
+    <div class="card" style="background: #FFFFFF; align-self: flex-start; max-width: 84%">Listo. Te espero mañana a las 3:00 p. m.</div>
+  </div>
+  <div style="margin: 0 1.4em 1.4em; background: #FFFFFF; border-radius: 99em; padding: .8em 1.2em; color: #5A6660">Escribe un mensaje</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p5 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 4cqw; background: #0F5FA8; color: #FFFFFF; padding: 2.4em 1.4em 1.4em">
+  <div style="display: flex; justify-content: space-between"><b>Banderas</b><span>7 de 10</span></div>
+  <div style="height: .5em; border-radius: 1em; background: #0B4A85; margin-top: .8em"><div style="width: 70%; height: 100%; border-radius: 1em; background: #FFD23F"></div></div>
+  <div style="margin-top: 2em; aspect-ratio: 3/2; border-radius: .6em; overflow: hidden; display: flex; flex-direction: column"><div style="flex: 2; background: #FCD116"></div><div style="flex: 1; background: #003893"></div><div style="flex: 1; background: #CE1126"></div></div>
+  <div style="font-size: 1.4em; font-weight: 600; margin-top: 1.2em">¿De qué país es esta bandera?</div>
+  <div style="display: flex; flex-direction: column; gap: .7em; margin-top: 1.2em; color: #0B2B4A; font-weight: 600"><div class="card" style="background: #FFFFFF">Ecuador</div><div class="card" style="background: #FFD23F">Colombia ✓</div><div class="card" style="background: #FFFFFF">Venezuela</div><div class="card" style="background: #FFFFFF">Rumania</div></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p6 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 4cqw; background: #1C1C1E; color: #F2F2F2; padding: 2.4em 1.4em 1.4em">
+  <div style="color: #B8B8BD">Martes · Semana 6</div>
+  <div style="font-size: 1.9em; font-weight: 600; line-height: 1.1; margin-top: .2em">Empuje</div>
+  <div class="card" style="background: #2C2C2E; margin-top: 1.4em"><b>Press de banca</b><div style="color: #B8B8BD">Hoy: 62,5 kg × 8</div>
+    <div class="row" style="border-color: #3A3A3C"><span>Serie 1</span><span>62,5 kg × 8 ✓</span></div>
+    <div class="row" style="border-color: #3A3A3C"><span>Serie 2</span><span>62,5 kg × 8 ✓</span></div>
+    <div class="row" style="border: 0"><span>Serie 3</span><span style="color: #FF9A3D">por anotar</span></div>
+  </div>
+  <div style="display: flex; gap: .7em; margin-top: 1em; font-weight: 600; font-size: 1.3em"><div class="card" style="background: #2C2C2E; flex: 1; text-align: center">− 2,5</div><div class="card" style="background: #FF9A3D; color: #1C1C1E; flex: 2; text-align: center">Anotar serie</div><div class="card" style="background: #2C2C2E; flex: 1; text-align: center">+ 2,5</div></div>
+  <div class="card" style="background: #2C2C2E; margin-top: 1em"><b>Press militar</b><div style="color: #B8B8BD">Sigue: 37,5 kg × 10</div></div>
+  <div class="card" style="background: #2C2C2E; margin-top: 1em"><b>Fondos</b><div style="color: #B8B8BD">Sigue: 3 series de 12</div></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p7 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 1.5cqw; background: #FFFFFF; color: #10343A">
+  <div class="bar" style="border-bottom: 1px solid #DCE8EA"><b style="font-size: 1.3em; color: #0B6E78">KREA</b><span>Mis tareas · Mi equipo · Ranking</span></div>
+  <div style="flex: 1; display: flex; gap: 2em; padding: 2em 2.4em; background: #F3F8F9">
+    <div class="card" style="flex: 1.3; background: #FFFFFF">
+      <div style="display: flex; justify-content: space-between; align-items: baseline"><b style="font-size: 1.4em">Tarea 5 · Prototipo</b><b style="font-size: 2.2em; color: #0B6E78">17 / 20</b></div>
+      <div class="row"><span>Pregunta 1 · Claridad del problema</span><span>5 / 5</span></div>
+      <div class="row"><span>Pregunta 2 · Solución propuesta</span><span>4 / 5</span></div>
+      <div class="row"><span>Pregunta 3 · Trabajo en equipo</span><span>5 / 5</span></div>
+      <div class="row" style="border: 0"><span>Pregunta 4 · Presentación</span><span>3 / 5</span></div>
+    </div>
+    <div class="card" style="flex: 1; background: #FFFFFF"><b style="font-size: 1.4em">Ranking en vivo</b>
+      <div class="row"><span>1 · Equipo Cóndor</span><span>184</span></div>
+      <div class="row" style="font-weight: 600; color: #0B6E78"><span>2 · Equipo Araguaney (tú)</span><span>179</span></div>
+      <div class="row"><span>3 · Equipo Turpial</span><span>171</span></div>
+      <div class="row" style="border: 0"><span>4 · Equipo Orinoco</span><span>166</span></div>
+    </div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p8 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 1.5cqw; background: #F6F6F4; color: #1D1D1B">
+  <div class="bar" style="background: #1D1D1B; color: #FFFFFF"><b>Inversiones JL22</b><span>Pedidos · Despachos · Reportes</span></div>
+  <div style="flex: 1; display: flex; gap: 2em; padding: 2em 2.4em">
+    <div class="card" style="flex: 1; background: #FFFFFF; display: flex; flex-direction: column; gap: .6em">
+      <div style="display: flex; justify-content: space-between"><b style="font-size: 1.4em">Factura n.º 4821</b><span class="chip" style="background: #1F7A4D; color: #FFFFFF">Lista para despacho</span></div>
+      <div>Cliente de demostración · Medellín</div>
+      <div class="row"><span>2 × Audífonos inalámbricos</span><span>$ 96.000</span></div>
+      <div class="row"><span>1 × Cargador rápido 25 W</span><span>$ 42.000</span></div>
+      <div class="row" style="border: 0; font-weight: 600"><span>Total</span><span>$ 138.000</span></div>
+    </div>
+    <div class="card" style="width: 17em; background: #FFFFFF; text-align: center"><div style="aspect-ratio: 1; border: .8em solid #FFFFFF; outline: 1px solid #DDDDDA; background: conic-gradient(#1D1D1B 25%, #FFFFFF 0 50%, #1D1D1B 0 75%, #FFFFFF 0) 0 0 / 1.6em 1.6em"></div><b style="display: block; margin-top: .8em">Escanear para cerrar el pedido</b></div>
+  </div>
+</div>
+</sc-if>
+
+<sc-if value="{{ p9 }}" hint-placeholder-val="{{ false }}">
+<div class="ui" style="font-size: 4cqw; background: #FFFFFF; color: #0A2540">
+  <div style="background: #0A2540; color: #FFFFFF; padding: 2.4em 1.4em 1.4em"><b style="font-size: 1.3em">La Nación Radio</b><div style="display: flex; gap: 1em; margin-top: 1em"><b style="border-bottom: .2em solid #F5B700">Noticias</b><span>Podcasts</span><span>Videos</span><span>Empresas</span></div></div>
+  <div style="flex: 1; padding: 1.2em 1.4em">
+    <div style="aspect-ratio: 16/9; border-radius: .6em; background: #C9D6E2"></div>
+    <b style="display: block; font-size: 1.25em; line-height: 1.2; margin-top: .8em">Abren la feria del libro con cien autores de la región</b>
+    <div class="row" style="margin-top: .6em"><span>Regionales</span><span>Hace 20 min</span></div>
+    <div class="row"><span>Deportes</span><span>Hace 1 h</span></div>
+    <div class="row" style="border: 0"><span>Economía</span><span>Hace 2 h</span></div>
+  </div>
+  <div class="bar" style="background: #F5B700; color: #0A2540; padding: 1em 1.4em"><span><b>En vivo</b> · La mañana informativa</span><b>❚❚</b></div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"n":{"editor":"enum","options":["01","02","03","04","05","06","07","08","09"],"default":"01"},"$preview":{"width":800,"height":450}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var n = String(this.props.n ?? '01');
+    var v = {};
+    for (var i = 1; i <= 9; i++) v['p' + i] = n === '0' + i;
+    return v;
+  }
+}
+</script>
+</body>
+</html>

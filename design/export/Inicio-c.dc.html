@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inicio · Sobre mí y Contacto</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="pg">
+
+<!-- 11 · Sobre mí (luz de la tarde) -->
+<section class="sec" id="sobre-mi" style="height: 900px; padding-top: 72px">
+  <div class="light" style="left: 135%; width: 280px; background: #FFF9E8; transform: skewX(-56deg)"></div>
+  <header class="hdr hdr-line">
+    <a class="word" href="#inicio">César León</a>
+    <button class="idx" type="button" aria-haspopup="menu" aria-expanded="false"><span>01–09</span><b>Sobre mí</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    <div class="hdr-r">
+      <nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true" lang="es">ES</a><i aria-hidden="true">/</i><a href="#" lang="en">EN</a></nav>
+      <a class="btn btn-sm btn-p" href="#contacto">Contacto</a>
+    </div>
+  </header>
+  <div class="grid" style="padding-top: 120px; row-gap: 0">
+    <h2 style="grid-column: 1 / 13; font-size: 16px; line-height: 24px; font-weight: 500; color: #5A574E; padding-bottom: 24px">Sobre mí</h2>
+    <p class="h2" style="grid-column: 1 / 10; font-size: 56px; line-height: 1.08; letter-spacing: -.03em; text-wrap: balance">Soy César León, desarrollador web con unos tres años construyendo productos para clientes reales.</p>
+    <sc-if value="{{ conRetrato }}" hint-placeholder-val="{{ false }}">
+      <figure class="win" style="grid-column: 10 / 13; align-self: start">
+        <div class="scr" style="aspect-ratio: 4 / 5; display: grid; place-items: center; text-align: center; padding: 16px"><span class="small" style="color: #17160F">Retrato de César<br>4:5 · pendiente</span></div>
+      </figure>
+    </sc-if>
+    <div style="grid-column: 1 / 13; height: 1px; background: #B08A4A; margin-top: 72px"></div>
+    <p style="grid-column: 1 / 5; font-size: 20px; line-height: 1.5; padding-top: 24px">Trabajo de principio a fin: entiendo el negocio, propongo la solución, la construyo y la dejo funcionando.</p>
+    <p style="grid-column: 5 / 9; font-size: 20px; line-height: 1.5; padding-top: 24px">Hago sitios web, tiendas en línea, paneles administrativos, aplicaciones y chatbots.</p>
+    <p style="grid-column: 9 / 13; font-size: 20px; line-height: 1.5; padding-top: 24px">Hablo claro, entrego por etapas y cada avance se puede ver y probar.</p>
+    <div style="grid-column: 1 / 13; padding-top: 56px"><a class="btn btn-p" href="#contacto">Contacto<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- 12 · Contacto (luz del final de la tarde, superficie de piedra) -->
+<section class="sec stone" id="contacto" style="height: 900px; display: flex; flex-direction: column">
+  <div class="light" style="left: 170%; width: 270px; background: #EAE4D8; transform: skewX(-62deg)"></div>
+  <div class="grid" style="padding-top: 144px; width: 100%; flex: 1; align-content: start">
+    <h2 class="display" style="grid-column: 1 / 12; font-size: 96px; line-height: 1; letter-spacing: -.04em; text-wrap: balance">¿Tienes un proyecto en mente?</h2>
+    <p class="h3" style="grid-column: 1 / 9; font-weight: 400; padding-top: 32px">Cuéntame qué necesitas y te respondo el mismo día.</p>
+    <div style="grid-column: 1 / 6; padding-top: 72px">
+      <a class="btn btn-p" href="#" style="height: 56px; padding: 0 28px; font-size: 18px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 20px; height: 20px"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>Escribir por WhatsApp</a>
+      <p class="small" style="padding-top: 12px">+58 000 000 0000 · número provisional</p>
+    </div>
+    <div style="grid-column: 7 / 13; padding-top: 72px">
+      <div style="display: flex; align-items: center; gap: 24px; border-top: 1px solid #7A7365; min-height: 64px"><span class="small" style="width: 96px">Correo</span><a class="lnk" href="mailto:alejandrorey2654@gmail.com" style="font-size: 20px">alejandrorey2654@gmail.com</a></div>
+      <div style="display: flex; align-items: center; gap: 24px; border-top: 1px solid #7A7365; min-height: 64px"><span class="small" style="width: 96px">LinkedIn</span><a class="lnk" href="#" style="font-size: 20px">Ver perfil<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+      <div style="display: flex; align-items: center; gap: 24px; border-top: 1px solid #7A7365; border-bottom: 1px solid #7A7365; min-height: 64px"><span class="small" style="width: 96px">GitHub</span><a class="lnk" href="#" style="font-size: 20px">Ver código<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+    </div>
+  </div>
+  <footer style="position: relative; z-index: 1; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; padding: 0 80px; min-height: 72px">
+    <span class="small">César León · 2026</span>
+    <a class="lnk" href="#inicio" style="font-size: 14px; color: #17160F">Volver arriba<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+  </footer>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"conRetrato":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { conRetrato: this.props.conRetrato ?? false };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Ventana · estados del video y apertura</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.kf{position:relative;width:296px;height:185px;background:#FAFAF7;outline:1px solid #7A7365;overflow:hidden}
+.kf i{position:absolute;display:block;background:#DDD6C8;border-radius:1px}
+.kf u{position:absolute;display:block;background:#5A574E;border-radius:1px}
+.kf s{position:absolute;left:0;right:0;top:0;height:15px;border-bottom:1px solid #DDD6C8;background:#FAFAF7;z-index:2}
+.lbl{position:absolute;right:68px;bottom:16px;z-index:2;height:44px;display:flex;align-items:center;padding:0 12px;background:#FAFAF7;color:#17160F;font-size:14px;line-height:20px;border-radius:2px}
+</style>
+</helmet>
+<div class="pg sheet" style="min-height: 1800px">
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Estados del video</h2>
+    <div class="cells">
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169" aria-busy="true"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import><div style="position: absolute; left: 0; bottom: 0; z-index: 2; width: 38%; height: 2px; background: #B08A4A"></div></div></figure>
+        <p class="cap"><b style="color: #17160F">Cargando.</b> Se ve el póster. Una línea de 2 px recorre el borde inferior. El control todavía no aparece.</p>
+      </div>
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import>
+          <button class="ctl" type="button" aria-label="Pausar el video de Maranatha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button></div></figure>
+        <p class="cap"><b style="color: #17160F">Reproduciendo.</b> El video sustituye al póster con un fundido de 240 ms. Control con el icono de pausa.</p>
+      </div>
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import>
+          <span class="lbl">En pausa</span>
+          <button class="ctl" type="button" aria-label="Reproducir el video de Maranatha"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z"/></svg></button></div></figure>
+        <p class="cap"><b style="color: #17160F">En pausa por el visitante.</b> Icono de reproducir y la etiqueta «En pausa». La pausa se mantiene al cambiar de proyecto.</p>
+      </div>
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import>
+          <span class="lbl">Ver el video</span>
+          <button class="ctl" type="button" aria-label="Reproducir el video de Maranatha"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5Z"/></svg></button></div></figure>
+        <p class="cap"><b style="color: #17160F">Solo póster.</b> Con movimiento reducido o ahorro de datos el video no se descarga hasta que el visitante lo pide.</p>
+      </div>
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import>
+          <div style="position: absolute; left: 16px; bottom: 16px; z-index: 2; display: flex; align-items: center; gap: 12px; height: 44px; padding: 0 4px 0 12px; background: #FAFAF7; border-radius: 2px; font-size: 14px; line-height: 20px"><svg viewBox="0 0 24 24" fill="none" stroke="#9B2C1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 18px; height: 18px"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>El video no cargó<button class="btn btn-s" type="button" style="height: 36px; padding: 0 12px; font-size: 14px">Reintentar</button></div></div></figure>
+        <p class="cap"><b style="color: #17160F">No cargó.</b> El póster se queda. Aviso con icono, texto y «Reintentar» sobre un panel sólido.</p>
+      </div>
+      <div class="cell">
+        <figure class="win" style="width: 400px"><div class="scr r169"><dc-import name="Poster" n="01" hint-size="100%,100%"></dc-import>
+          <button class="ctl is-focus" type="button" aria-label="Pausar el video de Maranatha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button></div></figure>
+        <p class="cap"><b style="color: #17160F">Foco del control.</b> Anillo de tinta de 2 px sobre un halo sólido del color del muro: se ve en cualquier fotograma.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Apertura de la ventana, ligada al avance del scroll dentro de cada proyecto (p de 0 a 1)</h2>
+    <div class="cells">
+      <div class="cell"><div class="kf"><s></s><i style="left: 16px; top: 62px; width: 70px; height: 14px"></i><i style="left: 16px; top: 86px; width: 96px; height: 5px"></i><i style="left: 16px; top: 96px; width: 88px; height: 5px"></i><i style="left: 16px; top: 106px; width: 60px; height: 5px"></i><u style="left: 123px; top: 52px; width: 173px; height: 97px"></u></div><p class="cap">p 0 – 0,15 · reposo: texto y ventana 16:9 en su sitio</p></div>
+      <div class="cell"><div class="kf"><s></s><u style="left: 62px; top: 33px; width: 234px; height: 132px"></u></div><p class="cap">p 0,30 · el texto ya salió, la ventana crece desde su borde</p></div>
+      <div class="cell"><div class="kf"><s></s><u style="left: 0; top: 15px; width: 296px; height: 170px"></u></div><p class="cap">p 0,55 – 0,80 · llena la pantalla bajo la cabecera</p></div>
+      <div class="cell"><div class="kf"><s></s><i style="left: 16px; top: 62px; width: 70px; height: 14px; opacity: .5"></i><i style="left: 16px; top: 86px; width: 96px; height: 5px; opacity: .5"></i><u style="left: 98px; top: 42px; width: 198px; height: 112px"></u></div><p class="cap">p 0,80 – 1 · se retira a su sitio y vuelve el texto</p></div>
+    </div>
+    <div class="cells">
+      <div class="cell"><div class="kf"><s></s><u style="left: 40px; top: 34px; width: 62px; height: 134px"></u><i style="left: 150px; top: 62px; width: 70px; height: 14px"></i><i style="left: 150px; top: 86px; width: 110px; height: 5px"></i><i style="left: 150px; top: 96px; width: 100px; height: 5px"></i><i style="left: 150px; top: 106px; width: 70px; height: 5px"></i></div><p class="cap">p 0 – 0,15 · ventana de teléfono en su columna</p></div>
+      <div class="cell"><div class="kf"><s></s><u style="left: 78px; top: 27px; width: 68px; height: 148px"></u></div><p class="cap">p 0,30 · se desplaza hacia el centro mientras crece</p></div>
+      <div class="cell"><div class="kf"><s></s><u style="left: 111px; top: 20px; width: 74px; height: 160px"></u></div><p class="cap">p 0,55 – 0,80 · ocupa todo el alto; el muro sigue a los lados</p></div>
+      <div class="cell"><div class="kf"><s></s><u style="left: 62px; top: 30px; width: 66px; height: 142px"></u><i style="left: 150px; top: 62px; width: 70px; height: 14px; opacity: .5"></i><i style="left: 150px; top: 86px; width: 110px; height: 5px; opacity: .5"></i></div><p class="cap">p 0,80 – 1 · vuelve a su columna</p></div>
+    </div>
+    <div class="cells">
+      <div class="cell"><div class="kf" style="width: 96px; height: 208px"><s></s><i style="left: 6px; top: 30px; width: 44px; height: 10px"></i><u style="left: 10px; top: 58px; width: 76px; height: 43px"></u><i style="left: 6px; top: 118px; width: 70px; height: 5px"></i><i style="left: 6px; top: 128px; width: 60px; height: 5px"></i></div><p class="cap" style="max-width: 296px">Móvil · al entrar: recorte de 12 % por lado</p></div>
+      <div class="cell"><div class="kf" style="width: 96px; height: 208px"><s></s><i style="left: 6px; top: 30px; width: 44px; height: 10px"></i><u style="left: 0; top: 52px; width: 96px; height: 54px"></u><i style="left: 6px; top: 118px; width: 70px; height: 5px"></i><i style="left: 6px; top: 128px; width: 60px; height: 5px"></i></div><p class="cap" style="max-width: 296px">Móvil · a media pantalla: abierta del todo. Sin etapa fija ni pantalla completa</p></div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1800}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Pantallas de estado en móvil</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.ms{height:844px;overflow:hidden;padding:136px 24px 0}
+.ms-in{position:relative;z-index:1}
+.st-label{display:flex;align-items:center;gap:10px;font-size:16px;line-height:24px;font-weight:500;padding-bottom:16px}
+.st-label svg{width:20px;height:20px;flex:none}
+.st-title{font-size:44px;line-height:1.02;font-weight:500;letter-spacing:-.03em}
+.st-line{font-size:18px;line-height:1.5;color:#5A574E;padding-top:20px}
+.st-act{display:flex;flex-direction:column;gap:12px;padding-top:32px}
+</style>
+</helmet>
+<div style="width: 1800px; height: 844px; display: flex; gap: 80px; background: #EFECE4">
+
+  <div class="pg m ms">
+    <div class="light" style="left: 150%; width: 135px; background: #FFFCF0; transform: skewX(-22deg)"></div>
+    <header class="hdr"><a class="word" href="#">César León</a><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav></header>
+    <div class="ms-in">
+      <p class="st-label"><svg viewBox="0 0 24 24" fill="none" stroke="#5A574E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>Error 404</p>
+      <h1 class="st-title">Esta página no existe.</h1>
+      <p class="st-line">La dirección que abriste no lleva a ningún lado. Puede que el enlace esté mal escrito o que la página se haya movido.</p>
+      <div class="st-act"><a class="btn btn-p" href="#">Ir al inicio</a><a class="btn btn-s" href="#">Contacto</a></div>
+    </div>
+  </div>
+
+  <div class="pg m ms">
+    <div class="light" style="left: 230%; width: 115px; background: #FFFAEB; transform: skewX(-42deg)"></div>
+    <header class="hdr"><a class="word" href="#">César León</a><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav></header>
+    <div class="ms-in">
+      <p class="st-label"><svg viewBox="0 0 24 24" fill="none" stroke="#9B2C1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Error del sitio</p>
+      <h1 class="st-title">Algo falló de este lado.</h1>
+      <p class="st-line">No es tu conexión ni tu equipo. Intenta de nuevo; si sigue igual, envíame este código y lo reviso.</p>
+      <div style="margin-top: 24px; padding: 12px 0; border-top: 1px solid #DDD6C8; border-bottom: 1px solid #DDD6C8">
+        <span class="small" style="display: block">Código</span>
+        <code style="display: block; font-family: 'IBM Plex Mono', monospace; font-size: 18px; line-height: 28px; color: #17160F; user-select: all; overflow-wrap: anywhere">ERR-7F3K-21QX</code>
+        <button class="btn btn-sm btn-s" type="button" style="width: 100%; margin-top: 12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>Copiar código</button>
+      </div>
+      <div class="st-act" style="padding-top: 24px"><button class="btn btn-p" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>Reintentar</button><a class="btn btn-s" href="#">Ir al inicio</a></div>
+    </div>
+  </div>
+
+  <div class="pg m ms">
+    <div class="light" style="left: 230%; width: 115px; background: #FFFAEB; transform: skewX(-42deg)"></div>
+    <header class="hdr"><a class="word" href="#">César León</a><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav></header>
+    <div class="ms-in">
+      <p class="st-label"><svg viewBox="0 0 24 24" fill="none" stroke="#9B2C1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/></svg>Error del sitio</p>
+      <h1 class="st-title">Algo falló de este lado.</h1>
+      <p class="st-line">No es tu conexión ni tu equipo. Intenta de nuevo en un momento; si sigue igual, escríbeme y lo reviso.</p>
+      <div class="st-act"><button class="btn btn-p" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>Reintentar</button><a class="btn btn-s" href="#">Ir al inicio</a></div>
+    </div>
+  </div>
+
+  <div class="pg m ms">
+    <header class="hdr"><a class="word" href="#">César León</a><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav></header>
+    <div class="ms-in">
+      <p class="st-label"><svg viewBox="0 0 24 24" fill="none" stroke="#8A5A00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 2l20 20M8.5 16.4a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5.2-2.7M19 12.9a10 10 0 0 0-2-1.5M2 8.8a15 15 0 0 1 4.2-2.6M22 8.8a15 15 0 0 0-11.3-3.9M12 20h.01"/></svg>Sin conexión</p>
+      <h1 class="st-title">No hay conexión a internet.</h1>
+      <p class="st-line">La página vuelve a cargar sola cuando regrese la conexión. Mientras tanto, revisa esto:</p>
+      <ul style="margin: 0; padding: 12px 0 0 20px; font-size: 16px; line-height: 1.6; color: #17160F"><li>Que el wifi o los datos móviles estén activos.</li><li>Que el modo avión esté apagado.</li></ul>
+      <div class="st-act" style="padding-top: 24px"><button class="btn btn-p" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg>Reintentar</button></div>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1800,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

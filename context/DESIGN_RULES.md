@@ -37,13 +37,16 @@ over an image or gradient · disabled text.
 
 | Name | Width | Notes |
 |---|---|---|
-| xs | 0 | base, mobile first |
-| sm | 640px | |
-| md | 768px | the one that breaks layouts most: neither mobile nor desktop |
-| lg | 1024px | |
-| xl | 1280px | |
-| 2xl | 1536px | |
-| 3xl | 1920px | márgenes de sección de 200px |
+| base | 0 (diseñado a 360) | mobile first; layout apilado, 4 columnas |
+| md | 768px | apilado, 8 columnas; aparece el popover del índice y el wordmark completo |
+| lg | 1024px | **layout de escritorio**: 12 columnas, una pantalla por sección, apertura de la ventana |
+| xl | 1440px | padding lateral 80px |
+| 2xl | 1920px | padding lateral 120px |
+| 3xl | 2560px | padding lateral 200px, gutter 32px |
+
+Son los del handoff (§ 4, D004): `min-width`, mobile first. Sustituyen los de Tailwind por
+defecto en el tema; no hay punto de corte en 640, 1280 ni 1536. "Escritorio" = ≥1024,
+"apilado" = <1024. Entre 1024 y 2560 nada se reordena.
 
 **QA verification widths** (different from the breakpoints — they are real devices):
 320 · 360 · 390 · 430 · 768 · 1024 · 1280 · 1440 · 1920 · 2560 · 3840
