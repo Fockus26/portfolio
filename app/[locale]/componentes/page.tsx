@@ -7,7 +7,10 @@ import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
 import { ProjectIndex } from "@/components/ui/ProjectIndex";
 import { TextLink } from "@/components/ui/TextLink";
 import { VideoControl } from "@/components/ui/VideoControl";
+import { VideoProvider } from "@/components/ui/VideoProvider";
+import { Window } from "@/components/ui/Window";
 import { projects } from "@/content/projects";
+import { getProjectMedia } from "@/lib/media";
 import { buildSections, projectSectionId } from "@/lib/sections";
 import { SECTION_IDS } from "@/lib/site";
 
@@ -42,6 +45,11 @@ function Group({
     </section>
   );
 }
+
+// A video that is not in the repository: the QA script serves one at this address.
+const DEMO_SOURCES = [
+  { src: "/work/_demo/loop.webm", type: "video/webm" },
+] as const;
 
 const ROW = "flex flex-wrap items-end gap-x-10 gap-y-8";
 
@@ -251,6 +259,70 @@ export default async function ComponentsPage() {
             </div>
           </Cell>
         </ul>
+      </Group>
+
+      <Group id="c-window" title="Window">
+        <p className="max-w-reading text-small text-graphite">
+          Las tres primeras piden un video de prueba (`/work/_demo/…`, que no
+          está en el repositorio): sin él muestran el estado «no cargó». Las
+          demás usan los archivos reales de cada proyecto y, mientras no
+          existan, quedan en póster provisional sin control.
+        </p>
+        <VideoProvider>
+          <ul className="flex flex-wrap items-start gap-x-10 gap-y-8">
+            <Cell caption="desktop 16:9 · reveal izquierda">
+              <Window
+                id="demo-desktop"
+                project="Maranatha"
+                format="desktop"
+                sources={DEMO_SOURCES}
+                className="w-120 max-w-full"
+              />
+            </Cell>
+            <Cell caption="phone 9:19.5 · reveal derecha">
+              <Window
+                id="demo-phone"
+                project="Melao"
+                format="phone"
+                reveal="right"
+                sources={DEMO_SOURCES}
+                className="w-52 max-w-full"
+              />
+            </Cell>
+            <Cell caption="chat 9:16">
+              <Window
+                id="demo-chat"
+                project="Gaby"
+                format="chat"
+                sources={DEMO_SOURCES}
+                className="w-57 max-w-full"
+              />
+            </Cell>
+            {projects.slice(0, 2).map((project) => {
+              const media = getProjectMedia(project);
+              return (
+                <Cell
+                  key={project.slug}
+                  caption={`${project.slug} · archivos reales (${media.sources.length} video, ${media.poster ? "con" : "sin"} póster)`}
+                >
+                  <Window
+                    id={project.slug}
+                    project={project.name}
+                    format={project.media.format}
+                    poster={media.poster}
+                    sources={media.sources}
+                    flushStacked={project.media.format === "desktop"}
+                    className={
+                      project.media.format === "desktop"
+                        ? "w-120 max-w-full"
+                        : "w-52 max-w-full"
+                    }
+                  />
+                </Cell>
+              );
+            })}
+          </ul>
+        </VideoProvider>
       </Group>
 
       <Group id="c-sections" title="Secciones de prueba">

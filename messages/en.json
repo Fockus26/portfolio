@@ -30,7 +30,12 @@
   },
   "Video": {
     "pause": "Pause the {project} video",
-    "play": "Play the {project} video"
+    "play": "Play the {project} video",
+    "paused": "Paused",
+    "watch": "Watch the video",
+    "failed": "The video didn't load",
+    "retry": "Try again",
+    "posterTag": "Placeholder poster"
   },
   "Sections": {
     "entrance": "Home",

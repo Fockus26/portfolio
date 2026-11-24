@@ -30,7 +30,12 @@
   },
   "Video": {
     "pause": "Pausar el video de {project}",
-    "play": "Reproducir el video de {project}"
+    "play": "Reproducir el video de {project}",
+    "paused": "En pausa",
+    "watch": "Ver el video",
+    "failed": "El video no cargó",
+    "retry": "Reintentar",
+    "posterTag": "Póster provisional"
   },
   "Sections": {
     "entrance": "Inicio",
