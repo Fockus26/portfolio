@@ -61,3 +61,9 @@ context/plans/
 .vercel
 .env*
 !.env.example
+
+# README drafts of private repos stay local (the portfolio repo is public)
+design/readme-drafts/melao.README.md
+design/readme-drafts/workout.README.md
+design/readme-drafts/inversionesjl22.README.md
+design/readme-drafts/la-nacion-radio-mobile.README.md
