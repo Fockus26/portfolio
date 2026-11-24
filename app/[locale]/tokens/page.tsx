@@ -36,7 +36,7 @@ export default function TokensPage() {
   if (process.env.NODE_ENV === "production") notFound();
 
   return (
-    <main className="flex flex-col gap-16 px-6 py-24 md:px-10 lg:px-12">
+    <div className="container-page flex flex-col gap-16 py-24">
       <h1 className="text-h1-status">Tokens</h1>
 
       <section aria-labelledby="t-color" className="flex flex-col gap-6">
@@ -161,6 +161,6 @@ export default function TokensPage() {
           moss con wall. Fuera de ella, el verde claro con ink.
         </p>
       </section>
-    </main>
+    </div>
   );
 }
