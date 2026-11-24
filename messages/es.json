@@ -9,10 +9,26 @@
   "Header": {
     "navLabel": "Principal",
     "wordmark": "César León",
-    "wordmarkLabel": "César León, inicio"
+    "wordmarkLabel": "César León, inicio",
+    "contact": "Contacto"
   },
   "Entrance": {
     "name": "César León",
     "line": "Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días."
+  },
+  "TextLink": {
+    "external": "{label} (se abre en otra pestaña)",
+    "externalWithContext": "{label}: {context} (se abre en otra pestaña)"
+  },
+  "LanguageSwitch": {
+    "label": "Idioma",
+    "code": {
+      "es": "ES",
+      "en": "EN"
+    }
+  },
+  "Video": {
+    "pause": "Pausar el video de {project}",
+    "play": "Reproducir el video de {project}"
   }
 }

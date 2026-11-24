@@ -9,10 +9,26 @@
   "Header": {
     "navLabel": "Main",
     "wordmark": "César León",
-    "wordmarkLabel": "César León, home"
+    "wordmarkLabel": "César León, home",
+    "contact": "Contact"
   },
   "Entrance": {
     "name": "César León",
     "line": "I build websites, apps and chatbots that people use every day."
+  },
+  "TextLink": {
+    "external": "{label} (opens in a new tab)",
+    "externalWithContext": "{label}: {context} (opens in a new tab)"
+  },
+  "LanguageSwitch": {
+    "label": "Language",
+    "code": {
+      "es": "ES",
+      "en": "EN"
+    }
+  },
+  "Video": {
+    "pause": "Pause the {project} video",
+    "play": "Play the {project} video"
   }
 }

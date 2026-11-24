@@ -66,5 +66,7 @@ No aplica: el proyecto no tiene modo oscuro (D003).
   sólido wall.
 - **Estado actual** (idioma, fila del índice): peso + barra (+ texto en el índice), nunca
   solo color.
-- **Selección dentro del botón primario (moss):** el handoff no la define; pregunta abierta
-  en `CURRENT_PHASE.md`.
+- **Selección dentro del botón primario (moss):** fondo wall, texto moss, 9.58:1 (D007).
+- **`fill-hover`** (`bg-fill-hover`): el relleno de hover de los controles discretos. Vale
+  `wash` sobre wall y `stone-hover` dentro de una sección `surface-stone`; no es un color
+  nuevo, es la variable que elige entre los dos.
