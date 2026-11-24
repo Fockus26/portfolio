@@ -1,0 +1,30 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-23T12:00:00Z"},
+  "title": "César León · Portafolio — Ático de día",
+  "launch": {"view": "canvas"},
+  "pages": [],
+  "boards": {
+    "Main.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 4500, "title": "Inicio 1440 · Entrada y proyectos 01–04", "expand": "fill"},
+    "Inicio-b.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 4500, "title": "Inicio 1440 · Proyectos 05–09", "expand": "fill"},
+    "Inicio-c.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 1800, "title": "Inicio 1440 · Sobre mí y Contacto", "expand": "fill"},
+    "Movil-a.dc.html": {"x": 0, "y": 4920, "w": 390, "h": 5600, "title": "Móvil 390 · Entrada y 01–04"},
+    "Movil-b.dc.html": {"x": 470, "y": 4920, "w": 390, "h": 6200, "title": "Móvil 390 · 05–09"},
+    "Movil-c.dc.html": {"x": 940, "y": 4920, "w": 390, "h": 1900, "title": "Móvil 390 · Sobre mí y Contacto"},
+    "Ventana.dc.html": {"x": 1410, "y": 4920, "w": 1440, "h": 1800, "title": "Ventana · estados del video y apertura"},
+    "Componentes.dc.html": {"x": 2930, "y": 4920, "w": 1440, "h": 2300, "title": "Componentes y estados"},
+    "Extremo.dc.html": {"x": 4450, "y": 4920, "w": 1920, "h": 1500, "title": "Contenido extremo · 1440 y 390"},
+    "Estado-1440.dc.html": {"x": 0, "y": 11540, "w": 1440, "h": 2880, "title": "Pantallas de estado · 1440"},
+    "Estado-390.dc.html": {"x": 1520, "y": 11540, "w": 1800, "h": 844, "title": "Pantallas de estado · 390"},
+    "Marca.dc.html": {"x": 3400, "y": 11540, "w": 1440, "h": 1000, "title": "Marca · monograma, wordmark e iconos"},
+    "OG.dc.html": {"x": 4920, "y": 11540, "w": 1200, "h": 630, "title": "Open Graph 1200×630"},
+    "Poster.dc.html": {"x": 6200, "y": 11540, "w": 800, "h": 450, "title": "Póster provisional (componente)"}
+  },
+  "order": ["Main.dc.html", "Inicio-b.dc.html", "Inicio-c.dc.html", "Movil-a.dc.html", "Movil-b.dc.html", "Movil-c.dc.html", "Ventana.dc.html", "Componentes.dc.html", "Extremo.dc.html", "Estado-1440.dc.html", "Estado-390.dc.html", "Marca.dc.html", "OG.dc.html", "Poster.dc.html"],
+  "notes": {
+    "t-desktop": {"x": 0, "y": -300, "text": "Página · escritorio 1440", "kind": "title1", "maxW": 4480},
+    "t-movil": {"x": 0, "y": 4620, "text": "Móvil 390 · ventana · componentes · contenido extremo", "kind": "title1", "maxW": 6370},
+    "t-estado": {"x": 0, "y": 11240, "text": "Pantallas de estado · marca", "kind": "title1", "maxW": 7000}
+  },
+  "designSystems": []
+}

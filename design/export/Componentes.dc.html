@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Componentes y estados</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div class="pg sheet" style="min-height: 2300px">
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Botones</h2>
+    <div class="cells">
+      <div class="cell"><a class="btn btn-p" href="#">Contacto</a><p class="cap">Primario · reposo</p></div>
+      <div class="cell"><a class="btn btn-p is-hover" href="#">Contacto</a><p class="cap">Hover · #163A2D</p></div>
+      <div class="cell"><a class="btn btn-p is-focus" href="#">Contacto</a><p class="cap">Foco · anillo musgo 2 px</p></div>
+      <div class="cell"><a class="btn btn-p is-active" href="#">Contacto</a><p class="cap">Activo · baja 1 px</p></div>
+      <div class="cell"><span class="btn is-disabled" aria-disabled="true">Contacto</span><p class="cap">Deshabilitado</p></div>
+      <div class="cell"><span class="btn btn-p" aria-busy="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.2-8.6"/></svg>Reintentando</span><p class="cap">Cargando · icono que gira</p></div>
+    </div>
+    <div class="cells">
+      <div class="cell"><a class="btn btn-s" href="#">Ver proyectos</a><p class="cap">Secundario · reposo</p></div>
+      <div class="cell"><a class="btn btn-s is-hover" href="#">Ver proyectos</a><p class="cap">Hover · #EFECE4</p></div>
+      <div class="cell"><a class="btn btn-s is-focus" href="#">Ver proyectos</a><p class="cap">Foco · anillo tinta 2 px</p></div>
+      <div class="cell"><a class="btn btn-s is-active" href="#">Ver proyectos</a><p class="cap">Activo</p></div>
+      <div class="cell"><span class="btn is-disabled" aria-disabled="true">Ver proyectos</span><p class="cap">Deshabilitado</p></div>
+      <div class="cell"><a class="btn btn-sm btn-p" href="#">Contacto</a><p class="cap">Tamaño cabecera · 44 px</p></div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Enlaces de proyecto</h2>
+    <div class="cells">
+      <div class="cell"><a class="lnk" href="#">Ver sitio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><p class="cap">Reposo · subrayado 1 px</p></div>
+      <div class="cell"><a class="lnk is-hover" href="#">Ver sitio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><p class="cap">Hover · subrayado 2 px</p></div>
+      <div class="cell"><a class="lnk is-focus" href="#">Ver sitio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><p class="cap">Foco · anillo musgo</p></div>
+      <div class="cell"><a class="lnk is-active" href="#">Ver sitio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a><p class="cap">Activo · #102C22</p></div>
+      <div class="cell"><span class="lnk is-disabled" aria-disabled="true">Demo en pausa</span><p class="cap">Sin enlace · texto grafito, sin subrayado</p></div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Cambio de idioma</h2>
+    <div class="cells">
+      <div class="cell"><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav><p class="cap">Reposo · ES actual: peso 600 y barra de 2 px</p></div>
+      <div class="cell"><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a class="is-hover" href="#">EN</a></nav><p class="cap">Hover sobre EN · tinta y subrayado</p></div>
+      <div class="cell"><nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a class="is-focus" href="#">EN</a></nav><p class="cap">Foco sobre EN · anillo tinta</p></div>
+      <div class="cell"><nav class="lang" aria-label="Language"><a href="#">ES</a><i aria-hidden="true">/</i><a class="on" href="#" aria-current="true">EN</a></nav><p class="cap">EN actual</p></div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Índice de proyectos</h2>
+    <div class="cells" style="align-items: flex-start">
+      <div style="display: flex; flex-direction: column; gap: 24px">
+        <div class="cell"><button class="idx" type="button"><span>01–09</span><b>Proyectos</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><p class="cap">Reposo · en la entrada</p></div>
+        <div class="cell"><button class="idx" type="button"><span>03 / 09</span><b>Inversiones JS</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><p class="cap">Proyecto actual · número y nombre</p></div>
+        <div class="cell"><button class="idx is-hover" type="button"><span>03 / 09</span><b>Inversiones JS</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><p class="cap">Hover · fondo #EFECE4</p></div>
+        <div class="cell"><button class="idx is-focus" type="button"><span>03 / 09</span><b>Inversiones JS</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button><p class="cap">Foco · anillo tinta 2 px</p></div>
+        <div class="cell"><button class="idx is-open" type="button" aria-expanded="true"><span>03 / 09</span><b>Inversiones JS</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button><p class="cap">Abierto · la flecha gira</p></div>
+      </div>
+      <div class="cell">
+        <nav class="pop" aria-label="Índice de proyectos">
+          <a href="#"><span></span>Inicio</a>
+          <hr>
+          <a href="#"><span>01</span>Maranatha</a>
+          <a href="#"><span>02</span>Melao</a>
+          <a class="on" href="#" aria-current="location"><span>03</span>Inversiones JS</a>
+          <a class="is-hover" href="#"><span>04</span>Gaby</a>
+          <a class="is-focus" href="#"><span>05</span>World Flags</a>
+          <a href="#"><span>06</span>Workout</a>
+          <a href="#"><span>07</span>KREA</a>
+          <a href="#"><span>08</span>Inversiones JL22</a>
+          <a href="#"><span>09</span>La Nación Radio</a>
+          <hr>
+          <a href="#"><span></span>Sobre mí</a>
+          <a href="#"><span></span>Contacto</a>
+        </nav>
+        <p class="cap">Lista en escritorio. 03 actual: peso 600, barra de 2 px y «Estás aquí». 04 en hover. 05 con foco.</p>
+      </div>
+      <div class="cell">
+        <div class="pg m" style="width: 360px; height: 760px; overflow: hidden; outline: 1px solid #7A7365">
+          <header class="hdr hdr-line">
+            <a class="mono-cl" href="#" aria-label="César León, inicio">CL</a>
+            <button class="idx is-open" type="button" aria-label="Índice de proyectos" aria-expanded="true"><span>03 / 09</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></button>
+            <div class="hdr-r">
+              <nav class="lang" aria-label="Idioma"><a class="on" href="#" aria-current="true">ES</a><i aria-hidden="true">/</i><a href="#">EN</a></nav>
+              <a class="btn btn-sm btn-p" href="#" style="padding: 0 14px">Contacto</a>
+            </div>
+          </header>
+          <div style="position: absolute; inset: 0; background: rgba(23,22,15,.45); z-index: 6"></div>
+          <div role="dialog" aria-label="Índice de proyectos" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 7; background: #FAFAF7; border-radius: 4px 4px 0 0; padding: 8px 8px 16px">
+            <div style="display: flex; align-items: center; justify-content: space-between; height: 56px; padding-left: 12px"><b style="font-size: 18px; font-weight: 500">Proyectos</b><button type="button" aria-label="Cerrar el índice" style="width: 44px; height: 44px; border: 0; background: transparent; color: #17160F; display: grid; place-items: center; cursor: pointer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" style="width: 20px; height: 20px"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+            <nav class="pop" style="width: auto; border: 0; padding: 0">
+              <a href="#"><span>01</span>Maranatha</a>
+              <a href="#"><span>02</span>Melao</a>
+              <a class="on" href="#" aria-current="location"><span>03</span>Inversiones JS</a>
+              <a href="#"><span>04</span>Gaby</a>
+              <a href="#"><span>05</span>World Flags</a>
+              <a href="#"><span>06</span>Workout</a>
+              <a href="#"><span>07</span>KREA</a>
+              <a href="#"><span>08</span>Inversiones JL22</a>
+              <a href="#"><span>09</span>La Nación Radio</a>
+              <hr>
+              <a href="#"><span></span>Inicio</a>
+              <a href="#"><span></span>Sobre mí</a>
+              <a href="#"><span></span>Contacto</a>
+            </nav>
+          </div>
+        </div>
+        <p class="cap">Móvil a 360 px. La cabecera muestra el monograma, el número del proyecto, el idioma y Contacto. El índice sube como hoja desde abajo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Selección de texto y barra de desplazamiento</h2>
+    <div class="cells" style="align-items: flex-start">
+      <div class="cell"><p style="width: 420px; font-size: 18px; line-height: 1.6">Hablo claro, <span style="background: #CFE0D6; color: #17160F">entrego por etapas y cada avance</span> se puede ver y probar.</p><p class="cap">Selección · fondo #CFE0D6, texto #17160F · 13,2:1</p></div>
+      <div class="cell"><p class="stone" style="width: 420px; font-size: 18px; line-height: 1.6; padding: 16px">Cuéntame qué necesitas <span style="background: #1E4A3A; color: #FAFAF7">y te respondo</span> el mismo día.</p><p class="cap">Selección sobre piedra · fondo #1E4A3A, texto #FAFAF7 · 9,6:1</p></div>
+      <div class="cell"><div style="position: relative; width: 240px; height: 160px; outline: 1px solid #DDD6C8"><div style="position: absolute; right: 0; top: 0; bottom: 0; width: 12px; background: #FAFAF7; border-left: 1px solid #DDD6C8"><div style="position: absolute; left: 2px; right: 2px; top: 24px; height: 56px; background: #7A7365; border-radius: 2px"></div></div></div><p class="cap">Barra · carril #FAFAF7 de 12 px, tirador #7A7365 de 8 px · 4,5:1. Hover del tirador #5A574E</p></div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

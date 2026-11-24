@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Marca: monograma, wordmark e iconos</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+.ic{position:relative;overflow:hidden;display:grid;place-items:center;background:#1E4A3A;color:#FAFAF7;font-weight:600;letter-spacing:-.06em;line-height:1;flex:none}
+.ic>b{position:relative;font-weight:600;padding-right:.04em}
+.ic>i{position:absolute;top:-10%;bottom:-10%;left:62%;width:26%;background:#2A5C4A;transform:skewX(-18deg);transform-origin:50% 0}
+</style>
+</helmet>
+<div class="pg sheet" style="min-height: 1000px">
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Monograma «CL»</h2>
+    <div class="cells">
+      <div class="cell"><div class="ic" role="img" aria-label="Monograma CL" style="width: 240px; height: 240px; border-radius: 15px; font-size: 132px"><i></i><b>CL</b></div><p class="cap">Icono fuente (SVG). Cuadro musgo #1E4A3A, letras #FAFAF7 en Schibsted Grotesk 600, franja de luz #2A5C4A a −18°. Letras sobre la franja: 7,4:1</p></div>
+      <div class="cell"><div class="ic" role="img" aria-label="Monograma CL" style="width: 180px; height: 180px; font-size: 99px"><i></i><b>CL</b></div><p class="cap">Apple touch 180 × 180 · fondo opaco, sin esquinas redondeadas (las recorta el sistema)</p></div>
+      <div class="cell"><div style="position: relative; width: 192px; height: 192px"><div class="ic" role="img" aria-label="Monograma CL" style="width: 192px; height: 192px; font-size: 76px"><i></i><b>CL</b></div><div style="position: absolute; inset: 10%; border: 1px dashed #FAFAF7; border-radius: 50%"></div></div><p class="cap">Maskable 512 × 512 (aquí a 192) · las letras caben en el círculo seguro del 80 %</p></div>
+      <div class="cell"><div class="ic" role="img" aria-label="Monograma CL" style="width: 48px; height: 48px; border-radius: 3px; font-size: 26px"><i></i><b>CL</b></div><p class="cap">48 px</p></div>
+      <div class="cell"><div class="ic" role="img" aria-label="Monograma CL" style="width: 32px; height: 32px; border-radius: 2px; font-size: 17px"><b>CL</b></div><p class="cap">32 px · sin franja</p></div>
+      <div class="cell"><div class="ic" role="img" aria-label="Monograma CL" style="width: 16px; height: 16px; border-radius: 1px; font-size: 9.5px; letter-spacing: -.04em"><b>CL</b></div><p class="cap">16 px · sin franja, letras al 60 % del alto</p></div>
+    </div>
+  </section>
+
+  <section style="display: flex; flex-direction: column; gap: 24px">
+    <h2>Wordmark «César León»</h2>
+    <div class="cells" style="align-items: stretch">
+      <div class="cell" style="width: auto"><div style="display: grid; place-items: center; width: 400px; height: 160px; outline: 1px solid #DDD6C8; font-size: 48px; font-weight: 500; letter-spacing: -.03em; line-height: 1">César León</div><p class="cap">Sobre el muro · tinta #17160F · 17,3:1. Schibsted Grotesk 500, tracking −0,03 em</p></div>
+      <div class="cell" style="width: auto"><div class="stone" style="display: grid; place-items: center; width: 400px; height: 160px; font-size: 48px; font-weight: 500; letter-spacing: -.03em; line-height: 1">César León</div><p class="cap">Sobre piedra · tinta #17160F · 12,5:1</p></div>
+      <div class="cell" style="width: auto"><div style="display: grid; place-items: center; width: 400px; height: 160px; background: #1E4A3A; color: #FAFAF7; font-size: 48px; font-weight: 500; letter-spacing: -.03em; line-height: 1">César León</div><p class="cap">Sobre musgo · #FAFAF7 · 9,6:1</p></div>
+    </div>
+    <div class="cells">
+      <div class="cell" style="width: auto"><div style="display: flex; align-items: center; gap: 12px"><div class="ic" aria-hidden="true" style="width: 32px; height: 32px; border-radius: 2px; font-size: 17px"><b>CL</b></div><span style="font-size: 18px; font-weight: 500; letter-spacing: -.01em">César León</span></div><p class="cap">Firma con monograma · 32 px + 12 px + wordmark de 18 px. Uso: pie de documentos y README</p></div>
+      <div class="cell" style="width: auto"><span class="word">César León</span><p class="cap">Cabecera de escritorio · 18 px, tracking −0,01 em. Legible desde 14 px</p></div>
+      <div class="cell" style="width: auto"><span class="mono-cl" aria-hidden="true">CL</span><p class="cap">Cabecera móvil · monograma de 32 px dentro de un área táctil de 44 px</p></div>
+    </div>
+  </section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>
