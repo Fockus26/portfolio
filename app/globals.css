@@ -1,26 +1,277 @@
 @import "tailwindcss";
+@import "./styles/type-scale.css";
+
+/*
+ * Tokens of "Ático de día". Source: design/HANDOFF.md § 1 and context/COLORS.md,
+ * TYPOGRAPHY.md, DESIGN_TOKENS.md (D004). Light only: there is no dark mode (D003).
+ * The default Tailwind palettes, breakpoints, type sizes, radii and shadows are
+ * removed so that only these tokens exist.
+ */
+@theme static {
+  --color-*: initial;
+  --color-wall: #fafaf7;
+  --color-stone: #ddd6c8;
+  --color-ink: #17160f;
+  --color-graphite: #5a574e;
+  --color-moss: #1e4a3a;
+  --color-moss-hover: #163a2d;
+  --color-moss-active: #102c22;
+  --color-moss-light: #2a5c4a;
+  --color-brass: #b08a4a;
+  --color-line: #ddd6c8;
+  --color-line-strong: #7a7365;
+  --color-wash: #efece4;
+  --color-wash-active: #e3dfd4;
+  --color-stone-hover: #cfc7b6;
+  --color-reveal: #e8e3d7;
+  --color-control-hover: #ffffff;
+  --color-selection-bg: #cfe0d6;
+  --color-selection-fg: #17160f;
+  --color-selection-bg-stone: #1e4a3a;
+  --color-selection-fg-stone: #fafaf7;
+  --color-scrollbar-track: #fafaf7;
+  --color-scrollbar-thumb: #7a7365;
+  --color-scrollbar-thumb-hover: #5a574e;
+  --color-success: #23603f;
+  --color-warning: #8a5a00;
+  --color-error: #9b2c1f;
+  --color-scrim: rgb(23 22 15 / 0.45);
+  --color-tag-bg: #17160f;
+  --color-tag-fg: #fafaf7;
+  /* The light band: never amber, the angle tells the time of day */
+  --color-light-1: #fffdf2;
+  --color-light-2: #fffbed;
+  --color-light-3: #fff9e8;
+  --color-light-stone: #eae4d8;
+  --color-brass-edge: rgb(176 138 74 / 0.6);
+
+  --breakpoint-*: initial;
+  --breakpoint-md: 48rem; /* 768: stacked, 8 columns */
+  --breakpoint-lg: 64rem; /* 1024: desktop layout */
+  --breakpoint-xl: 90rem; /* 1440 */
+  --breakpoint-2xl: 120rem; /* 1920 */
+  --breakpoint-3xl: 160rem; /* 2560 */
+
+  --radius-*: initial;
+  --radius-none: 0;
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  --shadow-*: initial;
+  --shadow-focus-halo: 0 0 0 6px #fafaf7;
+  --shadow-control-hover: 0 0 0 1px #17160f;
+  --shadow-current-row: inset 2px 0 0 #17160f;
+
+  --ease-*: initial;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --tracking-*: initial;
+  --tracking-num: 0.02em;
+  --tracking-wordmark: -0.01em;
+  --tracking-wordmark-lg: -0.03em;
+}
+
+/* Values that read a variable which changes per breakpoint or per element */
+@theme inline {
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+
+  --text-*: initial;
+  --text-display: var(--fs-display);
+  --text-display--line-height: var(--lh-display);
+  --text-display--letter-spacing: -0.045em;
+  --text-display--font-weight: 500;
+  --text-h1: var(--fs-h1);
+  --text-h1--line-height: 1;
+  --text-h1--letter-spacing: -0.04em;
+  --text-h1--font-weight: 500;
+  --text-h1-status: var(--fs-h1-status);
+  --text-h1-status--line-height: 1;
+  --text-h1-status--letter-spacing: -0.035em;
+  --text-h1-status--font-weight: 500;
+  --text-h2: var(--fs-h2);
+  --text-h2--line-height: 0.98;
+  --text-h2--letter-spacing: -0.035em;
+  --text-h2--font-weight: 500;
+  --text-h2-long: var(--fs-h2-long);
+  --text-h2-long--line-height: 1.02;
+  --text-h2-long--letter-spacing: -0.03em;
+  --text-h2-long--font-weight: 500;
+  --text-h3: var(--fs-h3);
+  --text-h3--line-height: 1.08;
+  --text-h3--letter-spacing: -0.03em;
+  --text-h3--font-weight: 500;
+  --text-h4: var(--fs-h4);
+  --text-h4--line-height: 1.2;
+  --text-h4--letter-spacing: -0.02em;
+  --text-h4--font-weight: 400;
+  --text-h5: var(--fs-h5);
+  --text-h5--line-height: 1.25;
+  --text-h5--letter-spacing: -0.015em;
+  --text-h5--font-weight: 400;
+  --text-h6: var(--fs-h6);
+  --text-h6--line-height: 1.5rem;
+  --text-h6--font-weight: 500;
+  --text-body: var(--fs-body);
+  --text-body--line-height: 1.6;
+  --text-body-lg: var(--fs-body-lg);
+  --text-body-lg--line-height: 1.5;
+  --text-role: var(--fs-role);
+  --text-role--line-height: 1.5rem;
+  --text-small: var(--fs-small);
+  --text-small--line-height: 1.25rem;
+  --text-caption: var(--fs-caption);
+  --text-caption--line-height: 1.25rem;
+  --text-button: var(--fs-button);
+  --text-button--line-height: 1.5rem;
+  --text-button--font-weight: 500;
+  /* Single-value sizes the handoff gives (TYPOGRAPHY.md, second table) */
+  --text-micro: 0.75rem; /* "Estás aquí" */
+  --text-micro--line-height: 1rem;
+  --text-button-lg: 1.125rem; /* WhatsApp button label, sheet title */
+  --text-button-lg--line-height: 1.5rem;
+  --text-button-lg--font-weight: 500;
+  --text-code: 1.125rem; /* 500 error code, mono */
+  --text-code--line-height: 1.75rem;
+  --text-contact: 1.125rem; /* contact row links below 1024 */
+  --text-contact--line-height: 1.5rem;
+  --text-contact-lg: 1.25rem; /* contact row links from 1024 */
+  --text-contact-lg--line-height: 1.5rem;
+  --text-wordmark: 1.125rem;
+  --text-wordmark--line-height: 1.5rem;
+  --text-wordmark--font-weight: 500;
+  --text-tag: 0.6875rem; /* "Póster provisional", development only */
+  --text-tag--line-height: 1rem;
+
+  --spacing-header: var(--header-h);
+}
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --lh-display: 0.95;
+  --header-h: 3.5rem; /* 56px below 768 */
+
+  --dur-fast: 120ms;
+  --dur-base: 240ms;
+  --dur-slow: 480ms;
+  --dur-entrance: 900ms;
+  --dur-loading-line: 1200ms;
+  --dur-spinner: 800ms;
+
+  --z-light: 0;
+  --z-content: 10;
+  --z-window-open: 20;
+  --z-header: 30;
+  --z-popover: 40;
+  --z-scrim: 50;
+  --z-sheet: 60;
+  --z-skip: 70;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 48rem) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --lh-display: 0.92;
+    --header-h: 4.5rem; /* 72px */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@utility duration-fast {
+  transition-duration: var(--dur-fast);
+}
+@utility duration-base {
+  transition-duration: var(--dur-base);
+}
+@utility duration-slow {
+  transition-duration: var(--dur-slow);
+}
+@utility duration-entrance {
+  transition-duration: var(--dur-entrance);
+}
+
+@utility z-light {
+  z-index: var(--z-light);
+}
+@utility z-content {
+  z-index: var(--z-content);
+}
+@utility z-window-open {
+  z-index: var(--z-window-open);
+}
+@utility z-header {
+  z-index: var(--z-header);
+}
+@utility z-popover {
+  z-index: var(--z-popover);
+}
+@utility z-scrim {
+  z-index: var(--z-scrim);
+}
+@utility z-sheet {
+  z-index: var(--z-sheet);
+}
+@utility z-skip {
+  z-index: var(--z-skip);
+}
+
+/* Inside a stone section the selection pair inverts (HANDOFF § 1.1) */
+@utility surface-stone {
+  background-color: var(--color-stone);
+  & ::selection,
+  &::selection {
+    background-color: var(--color-selection-bg-stone);
+    color: var(--color-selection-fg-stone);
+  }
+}
+
+@layer base {
+  html {
+    background-color: var(--color-wall);
+    color: var(--color-ink);
+    scrollbar-color: var(--color-scrollbar-thumb) var(--color-scrollbar-track);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.6;
+  }
+
+  ::selection {
+    background-color: var(--color-selection-bg);
+    color: var(--color-selection-fg);
+  }
+
+  /* Page scrollbar: 12px track, 8px thumb, 2px radius, 48px minimum length */
+  @supports selector(::-webkit-scrollbar) {
+    html {
+      scrollbar-color: auto;
+    }
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+      background-color: var(--color-scrollbar-track);
+    }
+    ::-webkit-scrollbar-thumb {
+      min-height: 48px;
+      border: 2px solid var(--color-scrollbar-track);
+      border-radius: 4px;
+      background-color: var(--color-scrollbar-thumb);
+      background-clip: padding-box;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--color-scrollbar-thumb-hover);
+    }
+  }
+
+  /* Native scroll: smooth anchors and proximity snap only when motion is allowed (D002) */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+    @media (min-width: 64rem) {
+      html {
+        scroll-snap-type: y proximity;
+      }
+    }
+  }
 }
