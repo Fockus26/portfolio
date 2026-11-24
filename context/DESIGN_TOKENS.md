@@ -70,6 +70,9 @@ See `DESIGN_RULES.md` — they must match exactly; this file does not redefine t
 | ease-out | `cubic-bezier(.2,.7,.2,1)` | todo lo que entra |
 | ease-in-out | `cubic-bezier(.65,0,.35,1)` | curva aplicada al progreso de scroll de la ventana |
 
+`animate-spinner` gira el `LoaderCircle` (una vuelta cada 800ms, lineal; se detiene con
+movimiento reducido).
+
 Otros tiempos del handoff: línea de carga del video 1200ms lineal en bucle; `LoaderCircle`
 una vuelta cada 800ms lineal; "Copiado" visible 2000ms. Prohibido: rebote, overshoot de
 resorte, elástico. Con `prefers-reduced-motion` se aplica lo que dice el handoff § 6 por

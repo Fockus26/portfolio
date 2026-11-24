@@ -144,6 +144,11 @@
   --text-tag: 0.6875rem; /* "Póster provisional", development only */
   --text-tag--line-height: 1rem;
 
+  /* Hover fill of quiet controls: wash on the wall, stone-hover inside a stone section */
+  --color-fill-hover: var(--fill-hover);
+
+  --animate-spinner: spinner var(--dur-spinner) linear infinite;
+
   --spacing-header: var(--header-h);
   /* Page grid (HANDOFF § 4): px-side, -mx-side, gap-x-gutter, max-w-page */
   --spacing-side: var(--side-pad);
@@ -159,6 +164,8 @@
   --grid-cols: 4;
   --gutter: 1rem;
   --side-pad: 1.5rem;
+
+  --fill-hover: var(--color-wash);
 
   --dur-fast: 120ms;
   --dur-base: 240ms;
@@ -220,6 +227,12 @@
   :root {
     --gutter: 2rem;
     --side-pad: 12.5rem; /* 200px */
+  }
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -291,6 +304,7 @@
 
 /* Inside a stone section the selection pair inverts (HANDOFF § 1.1) */
 @utility surface-stone {
+  --fill-hover: var(--color-stone-hover);
   background-color: var(--color-stone);
   & ::selection,
   &::selection {
