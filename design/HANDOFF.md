@@ -52,10 +52,13 @@ Light tints (the signature; background of the light band). Weakest text on each 
 | Token | Value | Where | graphite / moss / ink on it |
 |---|---|---|---|
 | `light-1` | `#FFFDF2` | Entrance | 7.1 / 9.8 / 17.8 |
-| `light-2` | `#FFF9E6` | Project 04 | 6.9 / 9.5 / 17.2 |
-| `light-3` | `#FDF0D2` | Project 08 | 6.4 / 8.9 / 16.0 |
-| `light-4` | `#FBE8C4` | Sobre mí | 6.0 / 8.3 / 15.1 |
-| `light-5` | `#F6DFB4` | Contacto (on stone) | 5.6 / 7.7 / 13.9 |
+| `light-2` | `#FFFBED` | Project 05 (midpoint) | 7.0 / 9.7 / 17.5 |
+| `light-3` | `#FFF9E8` | Sobre mí | 6.9 / 9.5 / 17.2 |
+| `light-stone` | `#EAE4D8` | Contacto (on stone) | 5.7 / 7.9 / 14.3 |
+
+The band never turns amber or orange (César, 2026-11-23: the warm version read as an orange
+ribbon). It stays a near-white warm tint from start to end; on stone it is a lighter stone.
+The passing of the day is carried by the angle, not by the color.
 
 Changes against the brief's palette: none to the six given hexes. Added: everything marked above
 that the brief left as PROPOSE, plus the five light tints.
@@ -255,13 +258,13 @@ Columns are grid lines at ≥1024 (`a / b` = `grid-column`). "Bleed" = the windo
 ### 11 · Sobre mí (`#sobre-mi`)
 - ≥1024: height `100svh` (min 720px), content starts 120px below the header. Grid: label "Sobre mí" (`h6`, graphite; it is the section's `<h2>`) across 1 / 13 → 24px → statement (`h3`) in 1 / 10 → 72px → 1px brass rule across 1 / 13 → 24px → three paragraphs (`body-lg`, ink) in 1 / 5, 5 / 9, 9 / 13 → 56px → primary button "Contacto" with `ArrowDown`.
 - Optional portrait: window 4:5 with reveal in 10 / 13, top-aligned with the statement. The layout is complete without it (default). Toggle in the artboard: tweak `conRetrato`.
-- LightBand: θ −56°, W 280px, left 135 %, `#FBE8C4`.
+- LightBand: θ −56°, W 280px, left 135 %, `#FFF9E8`.
 - <1024: padding 96px side-padding; label → 16px → statement (32px) → 40px → brass rule → three paragraphs stacked (18px/1.55, 24px then 16px between) → 40px → button.
 - Content: real. Portrait pending (optional).
 
 ### 12 · Contacto (`#contacto`)
 - Background stone. ≥1024: height `100svh` (min 760px), flex column. Content starts 144px from the top: title (`h1`) in 1 / 12 → 32px → line (28px/1.25, 400) in 1 / 9 → 72px → left 1 / 6: Button `lg` primary "Escribir por WhatsApp" (`MessageCircle` 20px) + 12px + number in `small`; right 7 / 13: ContactRows (Correo, LinkedIn, GitHub). Footer at the bottom.
-- LightBand: θ −62°, W 270px, left 170 %, `#F6DFB4`; frame shadow in stone.
+- LightBand: θ −62°, W 270px, left 170 %, `#EAE4D8`; frame shadow in stone.
 - <1024: padding 96px side-padding 0; title 52px → 24px → line 20px/1.35 → 40px → WhatsApp button full width → number → 40px → ContactRows → 56px → footer.
 - Content: real except the WhatsApp number (`+58 000 000 0000`, shown with "· número provisional" until replaced; remove that suffix with the real number). LinkedIn/GitHub URLs pending.
 
@@ -296,7 +299,7 @@ Columns are grid lines at ≥1024 (`a / b` = `grid-column`). "Bleed" = the windo
 - Web manifest: `theme_color` and `background_color` `#FAFAF7`.
 
 **Open Graph (artboard `OG`)**, 1200×630 PNG, one per locale, generated with `next/og`:
-- Wall background; light band θ −22°, W 300px, left 76 %, `#FFF7E0`.
+- Wall background; light band θ −22°, W 300px, left 76 %, `#FFFBED`.
 - "CL" mark 64×64 at x 80, y 72. Name "César León" 136px/0.92 500 at x 80, baseline block ending 136px above the bottom. Line (36px/1.2, max-width 880px) 28px under the name: the entrance line of the locale.
 - Stone strip 88px at the bottom: left "Nueve proyectos reales" / "Nine real projects" 24px ink; right the site domain 24px graphite.
 - Safe area: all text sits inside x 80–1120 and y 72–542. A centered 630×630 crop cuts the name: accepted (see §9).
@@ -328,8 +331,8 @@ One layout for all four. No sessions exist on this site, so there is no with/wit
 
 | Variant | Label + icon | Title | Line | Variant block | Actions | LightBand |
 |---|---|---|---|---|---|---|
-| 404 | "Error 404" · `Search` graphite | "Esta página no existe." | "La dirección que abriste no lleva a ningún lado. Puede que el enlace esté mal escrito o que la página se haya movido." | — | primary "Ir al inicio" · secondary "Contacto" (→ `/#contacto`) | θ −22°, `#FFFCEC`, left 84 %, W 360px |
-| 500 with code | "Error del sitio" · `TriangleAlert` `#9B2C1F` | "Algo falló de este lado." | "No es tu conexión ni tu equipo. Intenta de nuevo; si sigue igual, envíame este código y lo reviso." | CopyCode, 32px above (24px <768); actions then sit 24px below | primary "Reintentar" (`RotateCcw`) · secondary "Ir al inicio" | θ −42°, `#FDF2D6`, left 108 %, W 300px |
+| 404 | "Error 404" · `Search` graphite | "Esta página no existe." | "La dirección que abriste no lleva a ningún lado. Puede que el enlace esté mal escrito o que la página se haya movido." | — | primary "Ir al inicio" · secondary "Contacto" (→ `/#contacto`) | θ −22°, `#FFFCF0`, left 84 %, W 360px |
+| 500 with code | "Error del sitio" · `TriangleAlert` `#9B2C1F` | "Algo falló de este lado." | "No es tu conexión ni tu equipo. Intenta de nuevo; si sigue igual, envíame este código y lo reviso." | CopyCode, 32px above (24px <768); actions then sit 24px below | primary "Reintentar" (`RotateCcw`) · secondary "Ir al inicio" | θ −42°, `#FFFAEB`, left 108 %, W 300px |
 | 500 without code | same | same | "No es tu conexión ni tu equipo. Intenta de nuevo en un momento; si sigue igual, escríbeme y lo reviso." | — | same | same |
 | Offline | "Sin conexión" · `WifiOff` `#8A5A00` | "No hay conexión a internet." | "La página vuelve a cargar sola cuando regrese la conexión. Mientras tanto, revisa esto:" | list, 16px above, 18px/1.6 ink (16px <768): "Que el wifi o los datos móviles estén activos." · "Que el modo avión esté apagado." | primary "Reintentar" | **none**: the only screen without light |
 
@@ -367,17 +370,17 @@ One fixed layer for the whole page (motion allowed). Its values are keyed to eac
 | Section | θ (skewX) | left ≥1024 | W at 1440 | left <1024 | W at 390 | Tint |
 |---|---|---|---|---|---|---|
 | Entrance | −14° | 70 % | 400px | 80 % | 150px | `#FFFDF2` |
-| 01 | −18° | 36 % | 370px | 120 % | 140px | `#FFFDF0` |
-| 02 | −22° | 64 % | 350px | 150 % | 135px | `#FFFCEC` |
-| 03 | −26° | 78 % | 340px | 150 % | 130px | `#FFFBE9` |
-| 04 | −30° | 60 % | 330px | 190 % | 125px | `#FFF9E6` |
-| 05 | −34° | 80 % | 320px | 230 % | 125px | `#FFF7E0` |
-| 06 | −38° | 100 % | 310px | 260 % | 120px | `#FEF5DC` |
-| 07 | −42° | 90 % | 300px | 250 % | 115px | `#FDF2D6` |
-| 08 | −46° | 118 % | 290px | 290 % | 110px | `#FDF0D2` |
-| 09 | −50° | 112 % | 280px | 380 % | 105px | `#FCEDCB` |
-| Sobre mí | −56° | 135 % | 280px | 380 % | 110px | `#FBE8C4` |
-| Contacto | −62° | 170 % | 270px | 520 % | 105px | `#F6DFB4` |
+| 01 | −18° | 36 % | 370px | 120 % | 140px | `#FFFDF1` |
+| 02 | −22° | 64 % | 350px | 150 % | 135px | `#FFFCF0` |
+| 03 | −26° | 78 % | 340px | 150 % | 130px | `#FFFCEF` |
+| 04 | −30° | 60 % | 330px | 190 % | 125px | `#FFFCEE` |
+| 05 | −34° | 80 % | 320px | 230 % | 125px | `#FFFBED` |
+| 06 | −38° | 100 % | 310px | 260 % | 120px | `#FFFBEC` |
+| 07 | −42° | 90 % | 300px | 250 % | 115px | `#FFFAEB` |
+| 08 | −46° | 118 % | 290px | 290 % | 110px | `#FFFAEA` |
+| 09 | −50° | 112 % | 280px | 380 % | 105px | `#FFFAE9` |
+| Sobre mí | −56° | 135 % | 280px | 380 % | 110px | `#FFF9E8` |
+| Contacto | −62° | 170 % | 270px | 520 % | 105px | `#EAE4D8` |
 
 - W scales with viewport width between 1024 and 2560 as `W₁₄₄₀ × (vw / 1440)`.
 - During 6.1 the band keeps moving with the scroll (it is behind the window; the opened 16:9 window covers it).
@@ -424,6 +427,7 @@ One fixed layer for the whole page (motion allowed). Its values are keyed to eac
 - Small text above the project name (`01 / 09`): it is the room number of a real sequence, not a kicker. No other heading has a label above it, except "Sobre mí" (which **is** that section's heading; the large text under it is a paragraph) and the status labels (required by the brief, always with an icon).
 - Three equal columns in Sobre mí: they are the three remaining sentences of one paragraph, set as text with a single brass rule above all three. No icons, no titles, no boxes. Do not turn them into cards.
 - The mullion and transom of the light band are stripes, but they are the shadow of the window frame, drawn once; they are not a background pattern. Do not repeat or tile them.
+- The light band does not warm up to amber, although the brief asked for "late afternoon" warmth: César rejected the amber version after seeing it. Do not reintroduce `#FDF0D2`, `#FBE8C4`, `#F6DFB4` or any tint more saturated than `#FFF9E8` on the wall. Only the angle (−14° → −62°) tells the time of day.
 - Solid header with a hairline: deliberate, so no text or control ever overlaps a video. Do not make it transparent or blurred.
 - Pill shapes and saturated colors appear only **inside** the placeholder posters (they imitate client products). Nothing on the page itself is a pill; page radii are 2px and 4px.
 - Mono is used for exactly two things: the stack caption and the 500 error code.
