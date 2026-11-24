@@ -28,6 +28,7 @@ export const TEXT_SIZES = [
   "contact",
   "contact-lg",
   "wordmark",
+  "monogram",
   "tag",
 ] as const;
 

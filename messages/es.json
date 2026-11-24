@@ -10,7 +10,8 @@
     "navLabel": "Principal",
     "wordmark": "César León",
     "wordmarkLabel": "César León, inicio",
-    "contact": "Contacto"
+    "contact": "Contacto",
+    "monogram": "CL"
   },
   "Entrance": {
     "name": "César León",
@@ -30,5 +31,16 @@
   "Video": {
     "pause": "Pausar el video de {project}",
     "play": "Reproducir el video de {project}"
+  },
+  "Sections": {
+    "entrance": "Inicio",
+    "about": "Sobre mí",
+    "contact": "Contacto"
+  },
+  "ProjectIndex": {
+    "label": "Índice de proyectos",
+    "projects": "Proyectos",
+    "here": "Estás aquí",
+    "close": "Cerrar el índice"
   }
 }
