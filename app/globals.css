@@ -172,6 +172,8 @@
   --spacing-gutter: var(--gutter);
   --spacing-sheet: 85svh; /* max-h-sheet: the mobile index sheet */
   --container-page: 135rem; /* 2160px, side padding included */
+  --container-line: 21em; /* the entrance line (HANDOFF § 3 · 1) */
+  --container-support: 34em; /* the entrance support text, status screen lines */
   --container-reading: 46ch; /* body text of a project room (HANDOFF § 2.10) */
 }
 
@@ -309,6 +311,11 @@
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), minmax(0, 1fr));
   column-gap: var(--gutter);
+}
+
+/* The entrance at >=1024 is one viewport, and never shorter than 720px (HANDOFF § 3 · 1) */
+@utility entrance-h {
+  min-height: max(100svh, 45rem);
 }
 
 /*
