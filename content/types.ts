@@ -2,8 +2,11 @@
 export type Localized = { es: string; en: string };
 
 export type ProjectLink = {
-  /** live: the product itself · code: a public repo · case-study: a public write-up */
-  type: "live" | "code" | "case-study";
+  /**
+   * live: the client's product in use ("Ver sitio") · demo: a public copy with demo data
+   * ("Ver demo") · code: a public repo · case-study: a public write-up
+   */
+  type: "live" | "demo" | "code" | "case-study";
   url: string;
 };
 

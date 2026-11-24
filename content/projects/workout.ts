@@ -18,7 +18,7 @@ export const project: Project = {
     en: "Own product: full development.",
   },
   stack: ["Next.js", "TypeScript", "Postgres", "PWA", "Tailwind"],
-  links: [{ type: "live", url: "https://workout-two-psi.vercel.app" }],
+  links: [{ type: "demo", url: "https://workout-two-psi.vercel.app" }],
   media: {
     format: "phone",
     video: "/work/workout/loop",

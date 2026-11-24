@@ -37,6 +37,15 @@
     "retry": "Reintentar",
     "posterTag": "Póster provisional"
   },
+  "Room": {
+    "role": "Rol: {role}",
+    "links": {
+      "live": "Ver sitio",
+      "demo": "Ver demo",
+      "code": "Ver código",
+      "case-study": "Caso de estudio"
+    }
+  },
   "Sections": {
     "entrance": "Inicio",
     "about": "Sobre mí",

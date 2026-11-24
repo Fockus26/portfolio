@@ -312,6 +312,36 @@
 }
 
 /*
+ * A project room at >=1024 (HANDOFF § 3). Rows: top wall, intro, lead, detail, bottom wall.
+ * The two walls come from the room's data: both `1fr` center the text, a fixed one pins it
+ * 88px from the top or 96/112px from the bottom.
+ */
+@utility room-rows {
+  grid-template-rows: var(--room-top, 1fr) auto auto auto var(
+      --room-bottom,
+      1fr
+    );
+}
+
+/*
+ * A window never gets taller than the viewport at rest (HANDOFF § 3 and § 8): its width is
+ * capped so that its height stays within 100svh - header - 96px; 0.5rem is the top reveal.
+ */
+/* A window that bleeds takes its columns plus the side padding it runs through */
+@utility window-bleed {
+  width: calc(100% + var(--side-pad));
+}
+@utility window-cap-desktop {
+  max-width: calc((100svh - var(--header-h) - 6.5rem) * 16 / 9);
+}
+@utility window-cap-phone {
+  max-width: calc((100svh - var(--header-h) - 6.5rem) * var(--aspect-phone));
+}
+@utility window-cap-chat {
+  max-width: calc((100svh - var(--header-h) - 6.5rem) * var(--aspect-chat));
+}
+
+/*
  * Every section of the page (HANDOFF § 4 and § 6.6). Stacked: an anchor lands its content
  * under the header. Desktop: the section reserves the header as padding, so it lands at
  * the top and is a snap point.
