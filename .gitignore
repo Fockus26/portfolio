@@ -58,6 +58,9 @@ context/plans/
 
 # Claude Desktop worktrees (web-agent-kit)
 .claude/worktrees/
+.vercel
+.env*
+!.env.example
 
 # README drafts of private repos stay local (the portfolio repo is public)
 design/readme-drafts/melao.README.md

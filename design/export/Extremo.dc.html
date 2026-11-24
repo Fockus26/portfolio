@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Contenido extremo en 1440 y 390</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="./atico.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1920px; height: 1500px; box-sizing: border-box; padding: 24px; display: flex; gap: 42px; align-items: flex-start; background: #EFECE4">
+
+  <div style="width: 1440px; display: flex; flex-direction: column; gap: 24px">
+    <!-- Caso máximo: nombre de 30 caracteres, frase en inglés a tres líneas, 9 tecnologías, 3 enlaces -->
+    <div class="pg" style="width: 1440px">
+      <section class="sec room" lang="en">
+        <div class="light" style="left: 36%; width: 370px; background: #FFFDF1; transform: skewX(-18deg)"></div>
+        <div class="grid">
+          <div style="grid-column: 1 / 6">
+            <p class="num">07 / 09</p>
+            <h2 class="name name-long" lang="es">Asociación Deportiva Los Andes</h2>
+            <p class="kind">School portal</p>
+            <p class="lead">Students understand their grade and teachers evaluate each assignment in under a minute.</p>
+            <p class="body">It replaces an Excel sheet: every student sees how each question was graded, their team and the live ranking. Teachers create assignments, grade with a rubric and manage the teams.</p>
+            <p class="role">Role: full design and development.</p>
+            <div class="links">
+              <a class="lnk" href="#">Visit site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <a class="lnk" href="#">View demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+              <a class="lnk" href="#">View code<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+            </div>
+            <p class="stack">Next.js · TypeScript · Postgres · Tailwind · Supabase · Better Auth · Docker · PWA · Bun</p>
+          </div>
+          <figure class="win bleed-r" style="grid-column: 6 / 13">
+            <div class="scr r169"><span class="tag">Contenido de prueba</span><dc-import name="Poster" n="07" hint-size="100%,100%"></dc-import>
+              <button class="ctl" type="button" aria-label="Pause the video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
+            </div>
+          </figure>
+        </div>
+      </section>
+    </div>
+    <!-- Caso mínimo: nombre corto, 3 tecnologías, 1 enlace -->
+    <div class="pg" style="width: 1440px; height: 528px">
+      <div class="grid" style="padding-top: 64px">
+        <div style="grid-column: 1 / 6">
+          <p class="num">08 / 09</p>
+          <h2 class="name">Inversiones JL22</h2>
+          <p class="kind">Tienda en línea</p>
+          <p class="lead">Una tienda en Colombia despacha pedidos sin errores.</p>
+          <p class="role">Rol: desarrollo a medida sobre la tienda existente.</p>
+          <div class="links"><a class="lnk" href="#">Ver sitio<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+          <p class="stack">WordPress · WooCommerce · PHP</p>
+        </div>
+        <div style="grid-column: 7 / 13">
+          <p class="small" style="color: #17160F; font-weight: 500">Reglas de contenido</p>
+          <p class="small" style="padding-top: 8px">Nombre de más de 18 caracteres: baja a 56 px en escritorio y a 36 px en móvil, y parte por palabras.</p>
+          <p class="small" style="padding-top: 8px">La frase principal nunca se corta: crece hacia abajo hasta cuatro líneas y el bloque se recentra.</p>
+          <p class="small" style="padding-top: 8px">La línea de tecnologías ocupa una o dos líneas; la raya superior mide siempre el ancho de la columna.</p>
+          <p class="small" style="padding-top: 8px">Los enlaces van en fila con 32 px de separación y pasan a la línea siguiente sin separación vertical extra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Caso máximo en móvil 390 -->
+  <div class="pg m" style="min-height: 1452px">
+    <section class="sec mroom" lang="en">
+      <div class="light" style="left: 150%; width: 135px; background: #FFFCF0; transform: skewX(-22deg)"></div>
+      <div style="position: relative; z-index: 1">
+        <p class="num">07 / 09</p>
+        <h2 class="name name-long" lang="es">Asociación Deportiva Los Andes</h2>
+        <p class="kind">School portal</p>
+        <figure class="win full">
+          <div class="scr r169"><span class="tag">Contenido de prueba</span><dc-import name="Poster" n="07" hint-size="100%,100%"></dc-import>
+            <button class="ctl" type="button" aria-label="Pause the video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
+          </div>
+        </figure>
+        <p class="lead">Students understand their grade and teachers evaluate each assignment in under a minute.</p>
+        <p class="body">It replaces an Excel sheet: every student sees how each question was graded, their team and the live ranking. Teachers create assignments, grade with a rubric and manage the teams.</p>
+        <p class="role">Role: full design and development.</p>
+        <div class="links">
+          <a class="lnk" href="#">Visit site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="lnk" href="#">View demo<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="lnk" href="#">View code<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+        <p class="stack">Next.js · TypeScript · Postgres · Tailwind · Supabase · Better Auth · Docker · PWA · Bun</p>
+      </div>
+    </section>
+  </div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1920,"height":1500}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

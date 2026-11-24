@@ -62,9 +62,9 @@ con neón y efectos de terminal; una plantilla con hero de degradado e insignias
   distintas convivan en una misma pared.
 
 **Anchor:** un ático a media mañana: pared de yeso blanco, piso de piedra clara y la luz
-del ventanal que se desplaza por la pared. **Elemento firma:** la luz cambia de ángulo y
-calidez con el scroll (mañana en la entrada, atardecer en el contacto); los videos son los
-"ventanales".
+del ventanal que se desplaza por la pared. **Elemento firma:** la luz cambia de ángulo con
+el scroll (de −14° en la entrada a −62° en el contacto) sin volverse ámbar (D004); los
+videos son los "ventanales".
 
 ## Tech stack
 
@@ -86,10 +86,10 @@ calidez con el scroll (mañana en la entrada, atardecer en el contacto); los vid
 
 ## Repo and deployment
 
-- Repo: PENDING — `https://github.com/Fockus26/portfolio` (public), autorizado, por crear
+- Repo: https://github.com/Fockus26/portfolio (public) · `main` protegida con el check `ci`
 - Versioning: Changesets
-- Vercel: PENDING — proyecto en la cuenta de César, autorizado, por crear
-- Production: PENDING · Previews: one per PR
+- Vercel: project `alejandrorey2654gmailcoms-projects/portfolio` on César's account, conectado al repo
+- Production: https://portfolio-olive-one-83.vercel.app (hasta tener dominio) · Previews: one per PR
 - DNS managed by: César (cuando haya dominio)
 - Maintenance: does not apply
 - Local `context/` backup: not possible: public repo
@@ -148,7 +148,8 @@ se arma dentro de la 04 y la 07 no aplica: no hay formulario que envíe.
   tecnologías, enlaces, video). Lo genera la skill `project-showcase`; el tipo vive en
   `content/types.ts`.
 - **Videos:** bucles de 8–12 s grabados con Playwright desde cada app en local con datos de
-  demo, nunca producción. WebM + MP4 + póster en `public/work/<slug>/`, meta < 1.5 MB.
+  demo, nunca producción. WebM + MP4 + póster (AVIF + JPG) en `public/work/<slug>/`, en tamaño de escritorio y
+  de móvil; resoluciones y pesos máximos en `design/HANDOFF.md` § 5 (D004).
   Solo carga y reproduce el de la pantalla visible; silenciados y decorativos. Con
   `prefers-reduced-motion` o ahorro de datos se muestra el póster.
 - **Clientes:** se nombran, pero los videos usan datos ficticios (sin pedidos, pagos ni

@@ -1,4 +1,4 @@
-# D003 · Colors · Dirección "Ático de día": wall #FAFAF7, stone #DDD6C8, moss #1E4A3A, sin modo oscuro · Pending
+# D003 · Colors · Dirección "Ático de día": wall #FAFAF7, stone #DDD6C8, moss #1E4A3A, sin modo oscuro · Accepted (valores finales en D004)
 
 **Decision:** dirección visual "Ático de día". Ancla: un ático a media mañana. Elemento
 firma: la luz que cruza la pared y cambia con el scroll; los videos son los ventanales.
