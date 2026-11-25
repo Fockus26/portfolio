@@ -50,6 +50,21 @@
       "case-study": "Caso de estudio"
     }
   },
+  "Contact": {
+    "title": "¿Tienes un proyecto en mente?",
+    "line": "Cuéntame qué necesitas y te respondo el mismo día.",
+    "whatsapp": "Escribir por WhatsApp",
+    "provisionalNumber": "+58 000 000 0000 · número provisional",
+    "rows": {
+      "email": "Correo",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "linkedinLink": "Ver perfil",
+    "githubLink": "Ver código",
+    "footer": "César León · {year}",
+    "backToTop": "Volver arriba"
+  },
   "Sections": {
     "entrance": "Inicio",
     "about": "Sobre mí",
