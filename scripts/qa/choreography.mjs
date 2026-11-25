@@ -537,6 +537,8 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     window.scrollTo(0, top);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     track.querySelector("a").focus();
+    // The visitor scrolls on later, with the focus still there
+    await new Promise((resolve) => setTimeout(resolve, 300));
     window.scrollTo(0, top + 0.5 * window.innerHeight);
     await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
     const el = document.activeElement;
@@ -544,7 +546,10 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     root.style.scrollBehavior = "";
     return { tag: el.tagName, inert: Boolean(el.closest("[inert]")) };
   });
-  check(!blurred.inert, `focus stayed on inert text (${blurred.tag})`);
+  check(
+    !blurred.inert && blurred.tag === "BODY",
+    `focus stayed on inert text (${blurred.tag})`,
+  );
   log(`focus when its text leaves: ${blurred.tag}, inert=${blurred.inert}`);
 
   // Anchors: "Ver proyectos" and the FloorNav land at the track's start, text visible
