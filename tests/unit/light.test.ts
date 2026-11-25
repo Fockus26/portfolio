@@ -10,6 +10,7 @@ import {
   LIGHT_SCALE,
   lightKey,
   lightLayout,
+  parseColor,
   parseHex,
   rgbString,
   scrollProgress,
@@ -152,6 +153,13 @@ describe("interpolation", () => {
     // #FFF9E8 → #EAE4D8: (255+234)/2, (249+228)/2, (232+216)/2
     expect(rgbString(mid.color)).toBe("rgb(245 239 224)");
     expect(interpolate(sm, 0.5).left).toBe(100);
+  });
+
+  test("reads the colors the browser computes", () => {
+    expect(parseColor("rgb(255, 253, 242)")).toEqual([255, 253, 242]);
+    expect(parseColor("rgb(234 228 216)")).toEqual([234, 228, 216]);
+    expect(parseColor("#fffdf2")).toEqual([255, 253, 242]);
+    expect(() => parseColor("oklch(0.9 0 0)")).toThrow();
   });
 
   test("progress is clamped to the first and the last key", () => {

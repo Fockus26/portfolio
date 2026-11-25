@@ -106,6 +106,19 @@ export function parseHex(hex: string): Rgb {
   ];
 }
 
+/** A computed color (`rgb(255, 253, 242)`, `rgb(255 253 242)`) or a hex → channels. */
+export function parseColor(value: string): Rgb {
+  const channels = value.match(
+    /^\s*rgba?\(\s*([\d.]+)[\s,]+([\d.]+)[\s,]+([\d.]+)/,
+  );
+  if (!channels) return parseHex(value);
+  return [1, 2, 3].map((i) => Math.round(Number(channels[i]))) as [
+    number,
+    number,
+    number,
+  ];
+}
+
 /** `[255, 253, 242]` → `rgb(255 253 242)`. */
 export function rgbString([r, g, b]: Rgb): string {
   return `rgb(${r} ${g} ${b})`;

@@ -1,6 +1,7 @@
 import { ArrowDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
+import { LightBand } from "@/components/ui/LightBand";
 import { SectionLink } from "@/components/ui/SectionLink";
 import { SECTION_IDS } from "@/lib/site";
 
@@ -18,9 +19,10 @@ export function About() {
       id={SECTION_IDS.about}
       aria-labelledby={titleId}
       // One viewport from 1024, never shorter than 720px: the same floor as the entrance
-      className="page-section lg:entrance-h lg:pt-header"
+      className="page-section relative overflow-clip lg:entrance-h lg:pt-header"
     >
-      <div className="container-page py-24 lg:grid-page lg:pt-30 lg:pb-10">
+      <LightBand sectionId={SECTION_IDS.about} />
+      <div className="relative z-content container-page py-24 lg:grid-page lg:pt-30 lg:pb-10">
         <h2 id={titleId} className="text-h6 text-graphite lg:col-span-full">
           {sections("about")}
         </h2>
