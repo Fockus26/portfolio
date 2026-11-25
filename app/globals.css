@@ -348,6 +348,11 @@
   max-width: calc((100svh - var(--header-h) - 6.5rem) * var(--aspect-chat));
 }
 
+/* Contacto at >=1024 is one viewport, and never shorter than 760px (HANDOFF § 3 · 12) */
+@utility contact-h {
+  min-height: max(100svh, 47.5rem);
+}
+
 /*
  * Every section of the page (HANDOFF § 4 and § 6.6). Stacked: an anchor lands its content
  * under the header. Desktop: the section reserves the header as padding, so it lands at

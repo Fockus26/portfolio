@@ -89,4 +89,4 @@ function TextLink({
   );
 }
 
-export { TextLink, type TextLinkProps };
+export { TextLink, type TextLinkProps, textLinkVariants };

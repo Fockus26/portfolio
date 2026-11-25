@@ -59,6 +59,21 @@
     },
     "contact": "Contact"
   },
+  "Contact": {
+    "title": "Do you have a project in mind?",
+    "line": "Tell me what you need and I'll reply the same day.",
+    "whatsapp": "Message me on WhatsApp",
+    "provisionalNumber": "+58 000 000 0000 · placeholder number",
+    "rows": {
+      "email": "Email",
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "linkedinLink": "View profile",
+    "githubLink": "View code",
+    "footer": "César León · {year}",
+    "backToTop": "Back to top"
+  },
   "Sections": {
     "entrance": "Home",
     "about": "About",
