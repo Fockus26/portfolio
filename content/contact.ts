@@ -12,7 +12,7 @@ export type ContactInfo = {
 
 export const contact: ContactInfo = {
   email: "alejandrorey2654@gmail.com",
-  whatsapp: undefined,
-  linkedin: undefined,
-  github: undefined,
+  whatsapp: "+584149771310",
+  linkedin: "https://www.linkedin.com/in/cesaraleonr",
+  github: "https://github.com/Fockus26",
 };

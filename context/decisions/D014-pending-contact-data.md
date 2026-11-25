@@ -7,4 +7,4 @@ no se pintan hasta tener su URL.
 **Why:** un `wa.me` con un número inventado abriría un chat con un desconocido, y un enlace a
 `#` es un control que no hace nada. Aprobado por César el 2026-11-24 («sí, provisional»).
 **Discarded alternative:** enlaces a `#` como en el mockup; ocultar el botón de WhatsApp.
-**Pending:** al poner el número real el botón se activa solo y desaparece el sufijo.
+**Resolved (2026-11-25):** número, LinkedIn y GitHub reales en `content/contact.ts`, tomados del perfil de GitHub de César a pedido suyo.
