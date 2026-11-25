@@ -19,7 +19,7 @@ export const project: Project = {
   },
   stack: ["Astro", "React", "TypeScript", "Postgres", "PWA"],
   links: [
-    { type: "live", url: "https://world-flags-hazel.vercel.app" },
+    { type: "demo", url: "https://world-flags-hazel.vercel.app" },
     { type: "code", url: "https://github.com/Fockus26/world-flags" },
   ],
   media: {
