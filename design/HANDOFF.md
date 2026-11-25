@@ -243,7 +243,7 @@ Columns are grid lines at ≥1024 (`a / b` = `grid-column`). "Bleed" = the windo
 | 02 | Melao | 9:19.5 | 2 / 5 | 7 / 13 | center | Ver demo |
 | 03 | Inversiones JS | 16:9 | 1 / 7, bleed left, reveal on the right | 7 / 13 + 40px left padding | `align-items: end`, 112px bottom padding | Ver código |
 | 04 | Gaby | 9:16 | 9 / 12 | 2 / 7 | center | Ver código |
-| 05 | World Flags | 9:19.5 | 9 / 12 | 1 / 8 | `align-items: start`, 88px top padding | Ver demo · Ver código |
+| 05 | World Flags | 16:9 | 6 / 13, bleed right | 1 / 6 | center (D030: was 9:19.5, 9 / 12, 1 / 8, `align-items: start`, 88px top padding) | Ver sitio · Ver código |
 | 06 | Workout | 9:19.5 | 1 / 4 | 5 / 12 | `align-items: end`, 96px bottom padding | Ver demo |
 | 07 | KREA | 16:9 | 5 / 13, no bleed | 1 / 5 | center | Ver demo · Ver código |
 | 08 | Inversiones JL22 | 16:9 | 1 / 7, bleed left, reveal on the right | 7 / 13 + 40px left padding | `align-items: start`, 88px top padding | Ver sitio · Caso de estudio |

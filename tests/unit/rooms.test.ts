@@ -19,7 +19,7 @@ test("the grid lines are the handoff's table (§ 3)", () => {
     [2, [2, 5], [7, 13], null],
     [3, [1, 7], [7, 13], null],
     [4, [9, 12], [2, 7], null],
-    [5, [9, 12], [1, 8], null],
+    [5, [6, 13], [1, 6], null], // D030: room 1's lines, its video is 16:9 now
     [6, [1, 4], [5, 12], null],
     [7, [5, 13], [1, 5], null],
     [8, [1, 7], [7, 13], null],
@@ -69,7 +69,7 @@ test("the CSS variables carry the lines and only the wall that is fixed", () => 
   });
   expect(roomVars(roomLayout(3))["--room-bottom"]).toBe("7rem");
   expect(roomVars(roomLayout(6))["--room-bottom"]).toBe("6rem");
-  expect(roomVars(roomLayout(5))["--room-top"]).toBe("5.5rem");
+  expect(roomVars(roomLayout(8))["--room-top"]).toBe("5.5rem");
   expect(roomVars(roomLayout(9))["--room-detail"]).toBe("9 / 13");
 });
 

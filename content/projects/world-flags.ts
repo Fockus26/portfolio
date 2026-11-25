@@ -23,7 +23,7 @@ export const project: Project = {
     { type: "code", url: "https://github.com/Fockus26/world-flags" },
   ],
   media: {
-    format: "phone",
+    format: "desktop",
     video: "/work/world-flags/loop",
     poster: "/work/world-flags/poster.jpg",
   },

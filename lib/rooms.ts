@@ -57,11 +57,12 @@ export const ROOM_LAYOUTS: Readonly<Record<number, RoomLayout>> = {
     align: CENTER,
     stacked: "right",
   },
+  // Same lines as room 1 since its project's video became 16:9 (D030)
   5: {
-    window: { cols: [9, 12], reveal: "left" },
-    text: { cols: [1, 8] },
-    align: { at: "start", offset: 88 },
-    stacked: "right",
+    window: { cols: [6, 13], bleed: "right", reveal: "left" },
+    text: { cols: [1, 6] },
+    align: CENTER,
+    stacked: "bleed",
   },
   6: {
     window: { cols: [1, 4], reveal: "left" },
