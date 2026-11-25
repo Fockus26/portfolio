@@ -1,4 +1,5 @@
 import { ArrowDown, MessageCircle, RotateCcw } from "lucide-react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -52,6 +53,9 @@ const DEMO_SOURCES = [
 ] as const;
 
 const ROW = "flex flex-wrap items-end gap-x-10 gap-y-8";
+
+// Development reference: out of search results (and a 404 in production).
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export default async function ComponentsPage() {
   if (process.env.NODE_ENV === "production") notFound();

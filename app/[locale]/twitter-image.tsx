@@ -2,6 +2,6 @@
 export {
   contentType,
   default,
-  generateStaticParams,
+  generateImageMetadata,
   size,
 } from "./opengraph-image";

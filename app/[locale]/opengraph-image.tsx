@@ -1,7 +1,7 @@
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { ImageResponse } from "next/og";
 import { notFound } from "next/navigation";
+import { ImageResponse } from "next/og";
 import { hasLocale } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -19,8 +19,19 @@ const LIGHT = "#FFFBED";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export async function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
+// The alt text is per language, which a static `alt` export cannot be.
+export async function generateImageMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  // Next also calls this while it collects static params, before any locale is known.
+  const requested = (await params)?.locale;
+  const locale = hasLocale(routing.locales, requested)
+    ? requested
+    : routing.defaultLocale;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  return [{ id: "card", alt: t("ogAlt"), size, contentType }];
 }
 
 // Both files are read at build time from the project root (Next traces the literal paths).

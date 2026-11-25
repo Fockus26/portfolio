@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { COLOR_TOKENS, CONTRAST_PAIRS } from "@/lib/tokens";
 
@@ -31,6 +32,9 @@ const DURATIONS = [
   ["dur-slow", "duration-slow"],
   ["dur-entrance", "duration-entrance"],
 ] as const;
+
+// Development reference: out of search results (and a 404 in production).
+export const metadata: Metadata = { robots: { index: false, follow: false } };
 
 export default function TokensPage() {
   if (process.env.NODE_ENV === "production") notFound();

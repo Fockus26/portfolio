@@ -19,7 +19,11 @@ const base = {
 test("sameAs only lists the profiles that exist", () => {
   expect(sameAsUrls({ email: "a@b.c" })).toEqual([]);
   expect(
-    sameAsUrls({ email: "a@b.c", github: "https://github.com/x", linkedin: "" }),
+    sameAsUrls({
+      email: "a@b.c",
+      github: "https://github.com/x",
+      linkedin: "",
+    }),
   ).toEqual(["https://github.com/x"]);
 });
 
