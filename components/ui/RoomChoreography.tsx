@@ -285,9 +285,40 @@ export function RoomChoreography() {
       schedule();
     }
 
+    // The keyboard path (D024): the browser centers an off-screen focused link, which in a
+    // sticky stage lands partway through the track, where the text is fading or inert. A
+    // link of a room's text that gets the focus brings its room to the nearest end of its
+    // track, where the text is whole: the start coming from above, p = 1 from below.
+    function reveal(event: FocusEvent) {
+      const target = event.target;
+      // Only what Tab reaches: a heading focused by an anchor (tabindex −1) keeps its jump
+      if (!(target instanceof HTMLElement) || target.tabIndex < 0) return;
+      const room = rooms.find(
+        (candidate) =>
+          candidate.mode === "track" &&
+          candidate.texts.some((block) => block.contains(target)),
+      );
+      if (!room) return;
+      // After the browser has started its own focus scroll, which this one replaces
+      requestAnimationFrame(() => {
+        if (disposed || document.activeElement !== target) return;
+        const y = window.scrollY;
+        const box = target.getBoundingClientRect();
+        const whole =
+          textOpacity(trackProgress(y, room.top, room.travel)) === 1 &&
+          box.top >= 0 &&
+          box.bottom <= window.innerHeight;
+        if (whole) return;
+        window.scrollTo({
+          top: y < room.top + room.travel / 2 ? room.top : room.top + room.travel,
+        });
+      });
+    }
+
     measure();
     update();
 
+    document.addEventListener("focusin", reveal);
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", remeasure, { passive: true });
     const resize = new ResizeObserver(remeasure);
@@ -299,6 +330,7 @@ export function RoomChoreography() {
 
     return () => {
       disposed = true;
+      document.removeEventListener("focusin", reveal);
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", remeasure);
       resize.disconnect();

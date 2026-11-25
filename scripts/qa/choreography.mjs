@@ -511,14 +511,14 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     }, id);
     await page.waitForTimeout(500);
     await page.keyboard.press("Tab");
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(1500);
     const forward = await focusState();
     check(
       forward.room === next && forward.visible,
       `Tab from ${id} landed on ${forward.room} visible=${forward.visible}`,
     );
     await page.keyboard.press("Shift+Tab");
-    await page.waitForTimeout(900);
+    await page.waitForTimeout(1500);
     const back = await focusState();
     check(
       back.room === id && back.visible,
@@ -609,7 +609,7 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
   for (const key of ["Space", "PageDown", "ArrowDown", "ArrowUp", "End", "Home"]) {
     const before = await page.evaluate(() => window.scrollY);
     await page.keyboard.press(key);
-    await page.waitForTimeout(1200);
+    await page.waitForTimeout(2500);
     const after = await page.evaluate(() => window.scrollY);
     const max = await page.evaluate(
       () => document.documentElement.scrollHeight - window.innerHeight,
