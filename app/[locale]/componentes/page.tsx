@@ -3,13 +3,20 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
+import { FloorNav } from "@/components/sections/FloorNav";
+import { Footer } from "@/components/sections/Footer";
+import { ProjectRoom } from "@/components/sections/ProjectRoom";
 import { Button } from "@/components/ui/button";
+import { ContactRows } from "@/components/ui/ContactRows";
+import { CopyCode } from "@/components/ui/CopyCode";
 import { LanguageSwitch } from "@/components/ui/LanguageSwitch";
+import { LightBand } from "@/components/ui/LightBand";
 import { ProjectIndex } from "@/components/ui/ProjectIndex";
 import { TextLink } from "@/components/ui/TextLink";
 import { VideoControl } from "@/components/ui/VideoControl";
 import { VideoProvider } from "@/components/ui/VideoProvider";
 import { Window } from "@/components/ui/Window";
+import { contact } from "@/content/contact";
 import { projects } from "@/content/projects";
 import { getProjectMedia } from "@/lib/media";
 import { buildSections, projectSectionId } from "@/lib/sections";
@@ -61,6 +68,8 @@ export default async function ComponentsPage() {
   if (process.env.NODE_ENV === "production") notFound();
   const header = await getTranslations("Header");
   const names = await getTranslations("Sections");
+  const status = await getTranslations("Status");
+  const contactT = await getTranslations("Contact");
   const sections = buildSections(
     projects.map(({ order, name }) => ({ order, name })),
     {
@@ -329,23 +338,136 @@ export default async function ComponentsPage() {
         </VideoProvider>
       </Group>
 
+      <Group id="c-contact-rows" title="ContactRows">
+        <p className="max-w-reading text-small text-graphite">
+          El correo es el real; LinkedIn y GitHub usan direcciones de
+          example.com porque los reales siguen pendientes (D014). Debajo de
+          768px el correo lleva la etiqueta encima y se parte donde haga falta.
+        </p>
+        <ul className={ROW}>
+          <Cell caption="tres filas (correo apilado, LinkedIn, GitHub)">
+            <div className="w-full min-w-0 max-w-170">
+              <ContactRows
+                rows={[
+                  {
+                    label: contactT("rows.email"),
+                    href: `mailto:${contact.email}`,
+                    text: contact.email,
+                    stacked: true,
+                  },
+                  {
+                    label: contactT("rows.linkedin"),
+                    href: "https://example.com/linkedin",
+                    text: contactT("linkedinLink"),
+                  },
+                  {
+                    label: contactT("rows.github"),
+                    href: "https://example.com/github",
+                    text: contactT("githubLink"),
+                  },
+                ]}
+              />
+            </div>
+          </Cell>
+          <Cell caption="una sola fila (lo que muestra la página hoy)">
+            <div className="w-full min-w-0 max-w-170">
+              <ContactRows
+                rows={[
+                  {
+                    label: contactT("rows.email"),
+                    href: `mailto:${contact.email}`,
+                    text: contact.email,
+                    stacked: true,
+                  },
+                ]}
+              />
+            </div>
+          </Cell>
+        </ul>
+      </Group>
+
+      <Group id="c-copycode" title="CopyCode">
+        <ul className={ROW}>
+          <Cell caption="en reposo (código de ejemplo; copia al portapapeles)">
+            <CopyCode
+              code="1234567890"
+              labels={{
+                label: status("copyCode.label"),
+                copy: status("copyCode.copy"),
+                copied: status("copyCode.copied"),
+                fallback: status("copyCode.fallback"),
+              }}
+            />
+          </Cell>
+        </ul>
+      </Group>
+
+      <Group id="c-floornav" title="FloorNav">
+        <p className="max-w-reading text-small text-graphite">
+          Los nueve proyectos como enlaces. Solo desde 1024px: por debajo la
+          franja no se muestra y este grupo queda vacío.
+        </p>
+        <div className="-mx-side">
+          <FloorNav
+            projects={projects.map(({ order, name }) => ({ order, name }))}
+          />
+        </div>
+      </Group>
+
+      <Group id="c-footer" title="Footer">
+        <Footer />
+      </Group>
+
+      <Group id="c-lightband" title="LightBand (estática)">
+        <p className="max-w-reading text-small text-graphite">
+          La banda de cada sección sin la capa fija: la fila de la entrada sobre
+          el muro y la de Contacto sobre stone, cada una en una caja de alto
+          fijo que la recorta.
+        </p>
+        <ul className={ROW}>
+          <Cell caption="inicio · sobre el muro">
+            <div className="relative h-80 w-full min-w-0 overflow-clip bg-wall md:w-120">
+              <LightBand sectionId={SECTION_IDS.entrance} />
+            </div>
+          </Cell>
+          <Cell caption="contacto · sobre stone">
+            <div className="surface-stone relative h-80 w-full min-w-0 overflow-clip md:w-120">
+              <LightBand sectionId={SECTION_IDS.contact} />
+            </div>
+          </Cell>
+        </ul>
+      </Group>
+
+      <Group id="c-room" title="ProjectRoom">
+        <p className="max-w-reading text-small text-graphite">
+          La sala del proyecto 01 completa: es la sección de prueba #p01 de más
+          abajo, para no repetir el id.
+        </p>
+      </Group>
+
       <Group id="c-sections" title="Secciones de prueba">
         <p className="max-w-reading text-small text-graphite">
           Una sección por parada de la página, con sus ids reales, para probar
           el índice de la cabecera, el cambio de idioma y los saltos de ancla.
         </p>
-        {sections.map((section) => (
-          <section
-            key={section.id}
-            id={section.id}
-            className="page-section flex min-h-svh flex-col justify-center border-t border-line"
-          >
-            <h3 className="text-h2 wrap-anywhere">{section.name}</h3>
-            <p className="font-mono text-caption text-graphite">
-              #{section.id}
-            </p>
-          </section>
-        ))}
+        {sections.map((section) =>
+          section.id === projectSectionId(1) ? (
+            <VideoProvider key={section.id}>
+              <ProjectRoom project={projects[0]} total={projects.length} />
+            </VideoProvider>
+          ) : (
+            <section
+              key={section.id}
+              id={section.id}
+              className="page-section flex min-h-svh flex-col justify-center border-t border-line"
+            >
+              <h3 className="text-h2 wrap-anywhere">{section.name}</h3>
+              <p className="font-mono text-caption text-graphite">
+                #{section.id}
+              </p>
+            </section>
+          ),
+        )}
       </Group>
     </div>
   );

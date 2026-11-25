@@ -34,6 +34,14 @@ export const COLOR_TOKENS = [
   "light-2",
   "light-3",
   "light-stone",
+  "light-p01",
+  "light-p02",
+  "light-p03",
+  "light-p04",
+  "light-p06",
+  "light-p07",
+  "light-p08",
+  "light-p09",
 ] as const;
 
 export const TYPE_ROLES = [
