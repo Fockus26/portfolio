@@ -91,6 +91,24 @@ elemento.
 | z-sheet | 60 |
 | z-skip | 70 |
 
+## Light band
+
+La franja de luz (handoff § 2.7 y § 6.4), en `:root` de `app/globals.css`. En px como la
+tabla del handoff: se dibuja contra el viewport, no contra el texto.
+
+| Token | Value | Uso |
+|---|---|---|
+| `--light-overshoot` | 140px | la banda corre 140px por encima y por debajo de su caja |
+| `--light-mullion` | 14px | parteluz vertical de la sombra del marco, a 50 % de W |
+| `--light-transom` | 10px | travesaño horizontal de la sombra del marco |
+| `--light-transom-at` | 44% | altura del travesaño en la banda |
+| `--light-ref-lg` · `--light-min-lg` · `--light-max-lg` | 1440 · 1024px · 2560px | ancho ≥1024: `W₁₄₄₀ × clamp(1024, vw, 2560) / 1440` |
+| `--light-ref-sm` · `--light-min-sm` · `--light-max-sm` | 390 · 320px · 1023px | ancho <1024: `W₃₉₀ × clamp(320, vw, 1023) / 390` (D015) |
+
+Los valores por sección (ángulo, left, W, tinte) son datos en `lib/light.ts`; la capa fija
+escribe los interpolados como propiedades `--band-*` (D017). No son valores mágicos: salen de
+la tabla.
+
 A token built on a variable that changes per element (an animation whose duration a component
 overrides) is declared in `@theme inline` (Tailwind v4): in plain `@theme` the override does
 nothing — the kit's `reference/STACK-NEXTJS.md` › Tailwind.

@@ -44,11 +44,22 @@ más débil sobre cada uno es graphite.
 | Token | Hex | Sección | graphite / moss / ink |
 |---|---|---|---|
 | `light-1` | #FFFDF2 | Entrada | 7.08 / 9.82 / 17.77 |
-| — | #FFFDF1 · #FFFCF0 · #FFFCEF · #FFFCEE | Proyectos 01–04 (404 usa #FFFCF0) | graphite ≥ 7.0 |
-| `light-2` | #FFFBED | Proyecto 05 | 6.97 / 9.7 / 17.5 |
-| — | #FFFBEC · #FFFAEB · #FFFAEA · #FFFAE9 | Proyectos 06–09 (500 usa #FFFAEB) | graphite ≥ 6.9 |
-| `light-3` | #FFF9E8 | Sobre mí | 6.87 / 9.53 / 17.2 |
+| `light-p01` | #FFFDF1 | Proyecto 01 | 7.07 / 9.82 / 17.76 |
+| `light-p02` | #FFFCF0 | Proyecto 02 (404 usa #FFFCF0) | 7.03 / 9.75 / 17.64 |
+| `light-p03` | #FFFCEF | Proyecto 03 | 7.02 / 9.74 / 17.63 |
+| `light-p04` | #FFFCEE | Proyecto 04 | 7.02 / 9.74 / 17.62 |
+| `light-2` | #FFFBED | Proyecto 05 | 6.97 / 9.67 / 17.51 |
+| `light-p06` | #FFFBEC | Proyecto 06 | 6.97 / 9.67 / 17.50 |
+| `light-p07` | #FFFAEB | Proyecto 07 (500 usa #FFFAEB) | 6.92 / 9.60 / 17.38 |
+| `light-p08` | #FFFAEA | Proyecto 08 | 6.92 / 9.60 / 17.37 |
+| `light-p09` | #FFFAE9 | Proyecto 09 | 6.91 / 9.59 / 17.36 |
+| `light-3` | #FFF9E8 | Sobre mí | 6.87 / 9.53 / 17.24 |
 | `light-stone` | #EAE4D8 | Contacto (sobre stone) | 5.70 / 7.91 / 14.32 |
+
+Los ocho `light-pNN` se añadieron con la banda de luz (D016): uno por sala que no tenía
+token. Los cuatro originales conservan su nombre. Entre dos secciones la capa fija mezcla los
+dos tintes por canal, así que el contraste nunca baja del menor de los dos (`tests/unit/light.test.ts`).
+`brass-edge` (`rgb(176 138 74 / 0.6)`) es el borde izquierdo de 1px de la banda: decorativo.
 
 **La franja nunca se vuelve ámbar ni naranja** (César, 2026-11-23). Ningún tinte más
 saturado que #FFF9E8 sobre wall; el paso del día lo cuenta el ángulo (−14° → −62°).
