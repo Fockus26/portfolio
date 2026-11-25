@@ -39,10 +39,19 @@
   --color-tag-bg: #17160f;
   --color-tag-fg: #fafaf7;
   /* The light band: never amber, the angle tells the time of day */
-  --color-light-1: #fffdf2;
-  --color-light-2: #fffbed;
-  --color-light-3: #fff9e8;
-  --color-light-stone: #eae4d8;
+  --color-light-1: #fffdf2; /* Inicio */
+  --color-light-2: #fffbed; /* 05 */
+  --color-light-3: #fff9e8; /* Sobre mí */
+  --color-light-stone: #eae4d8; /* Contacto */
+  /* The other rooms, one tint each (HANDOFF § 6.4, D016) */
+  --color-light-p01: #fffdf1;
+  --color-light-p02: #fffcf0;
+  --color-light-p03: #fffcef;
+  --color-light-p04: #fffcee;
+  --color-light-p06: #fffbec;
+  --color-light-p07: #fffaeb;
+  --color-light-p08: #fffaea;
+  --color-light-p09: #fffae9;
   --color-brass-edge: rgb(176 138 74 / 0.6);
 
   --breakpoint-*: initial;
@@ -203,6 +212,22 @@
   --z-scrim: 50;
   --z-sheet: 60;
   --z-skip: 70;
+
+  /*
+   * The light band (HANDOFF § 2.7 and § 6.4). In px, like the handoff's table: the band is
+   * drawn against the viewport, not the text, so it does not grow with the font size.
+   * Its width scales as W × clamp(min, 100vw, max) / reference, per layout (D015).
+   */
+  --light-overshoot: 140px; /* the band runs 140px above and below its box */
+  --light-mullion: 14px; /* vertical bar of the frame shadow, at 50 % of W */
+  --light-transom: 10px; /* horizontal bar of the frame shadow */
+  --light-transom-at: 44%; /* of the band's height */
+  --light-ref-lg: 1440;
+  --light-min-lg: 1024px;
+  --light-max-lg: 2560px;
+  --light-ref-sm: 390;
+  --light-min-sm: 320px;
+  --light-max-sm: 1023px;
 }
 
 @media (min-width: 48rem) {
@@ -412,6 +437,65 @@
   &::selection {
     background-color: var(--color-selection-bg-stone);
     color: var(--color-selection-fg-stone);
+  }
+}
+
+/*
+ * The light band (HANDOFF § 2.7). Its values arrive as custom properties (lib/light.ts):
+ * from the section's key on a static band, interpolated by scroll on the fixed layer.
+ * `left` is the top-left corner, 140px above the box; skewX turns around the top edge.
+ */
+@layer components {
+  .light-band {
+    position: absolute;
+    top: calc(-1 * var(--light-overshoot));
+    bottom: calc(-1 * var(--light-overshoot));
+    left: calc(var(--band-left-sm) * 1%);
+    width: calc(
+      var(--band-w-sm) *
+      clamp(var(--light-min-sm), 100vw, var(--light-max-sm)) /
+      var(--light-ref-sm)
+    );
+    z-index: var(--z-light);
+    border-left: 1px solid var(--color-brass-edge);
+    background-color: var(--band-tint);
+    transform: skewX(calc(var(--band-angle) * 1deg));
+    transform-origin: 50% 0;
+    pointer-events: none;
+    @media (min-width: 64rem) {
+      left: calc(var(--band-left-lg) * 1%);
+      width: calc(
+        var(--band-w-lg) *
+        clamp(var(--light-min-lg), 100vw, var(--light-max-lg)) /
+        var(--light-ref-lg)
+      );
+    }
+  }
+
+  /* The window-frame shadow, in the color of the wall behind (stone in Contacto) */
+  .light-band::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: var(--light-mullion);
+    margin-left: calc(var(--light-mullion) / -2);
+    background-color: var(--band-cut);
+  }
+  .light-band::after {
+    content: "";
+    position: absolute;
+    top: var(--light-transom-at);
+    right: 0;
+    left: 0;
+    height: var(--light-transom);
+    background-color: var(--band-cut);
+  }
+
+  /* Never both: while the fixed layer runs, the per-section bands step aside */
+  :root[data-light-layer] .light-band-static {
+    display: none;
   }
 }
 

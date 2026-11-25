@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Footer } from "@/components/sections/Footer";
 import { Button } from "@/components/ui/button";
 import { type ContactRow, ContactRows } from "@/components/ui/ContactRows";
+import { LightBand } from "@/components/ui/LightBand";
 import { contact } from "@/content/contact";
 import { whatsappHref } from "@/lib/links";
 import { SECTION_IDS } from "@/lib/site";
@@ -41,9 +42,10 @@ export function Contact() {
     <section
       id={SECTION_IDS.contact}
       aria-labelledby={titleId}
-      className="page-section surface-stone flex flex-col lg:contact-h lg:pt-header"
+      className="page-section surface-stone relative flex flex-col overflow-clip lg:contact-h lg:pt-header"
     >
-      <div className="container-page pt-24 lg:grid-page lg:pt-18">
+      <LightBand sectionId={SECTION_IDS.contact} />
+      <div className="relative z-content container-page pt-24 lg:grid-page lg:pt-18">
         <h2
           id={titleId}
           className="text-h1 text-balance wrap-anywhere lg:col-span-11"
@@ -77,7 +79,7 @@ export function Contact() {
           <ContactRows rows={rows} />
         </div>
       </div>
-      <Footer className="container-page mt-14 lg:mt-auto" />
+      <Footer className="relative z-content container-page mt-14 lg:mt-auto" />
     </section>
   );
 }

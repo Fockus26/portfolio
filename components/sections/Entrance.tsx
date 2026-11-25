@@ -2,6 +2,7 @@ import { ArrowDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { FloorNav } from "@/components/sections/FloorNav";
 import { Button } from "@/components/ui/button";
+import { LightBand } from "@/components/ui/LightBand";
 import { SectionLink } from "@/components/ui/SectionLink";
 import { projectSectionId } from "@/lib/sections";
 import { SECTION_IDS } from "@/lib/site";
@@ -11,7 +12,8 @@ type EntranceProps = {
 };
 
 // The entrance (HANDOFF § 3 · 1): the name, what César does, and the two ways on. Static
-// version: the first-paint moment (§ 6.3) and the light band arrive with the choreography.
+// version: the first-paint moment (§ 6.3) arrives with the choreography. The light band
+// stays under the content and under the stone floor, as in the artboards.
 export function Entrance({ projects }: EntranceProps) {
   const t = useTranslations("Entrance");
   const first = projects[0];
@@ -19,9 +21,10 @@ export function Entrance({ projects }: EntranceProps) {
   return (
     <section
       id={SECTION_IDS.entrance}
-      className="page-section flex flex-col lg:entrance-h"
+      className="page-section relative flex flex-col overflow-clip lg:entrance-h"
     >
-      <div className="container-page grid-page pt-30 lg:pt-34 lg:pb-10">
+      <LightBand sectionId={SECTION_IDS.entrance} />
+      <div className="relative z-content container-page grid-page pt-30 lg:pt-34 lg:pb-10">
         <div className="col-span-full lg:col-span-9">
           <h1 className="text-display text-balance">{t("name")}</h1>
           <p className="mt-10 max-w-line text-h4 text-balance">{t("line")}</p>
@@ -44,8 +47,11 @@ export function Entrance({ projects }: EntranceProps) {
         </div>
       </div>
       {/* Below 1024 the floor is a plain strip, 120px under the buttons */}
-      <div aria-hidden="true" className="surface-stone mt-30 h-10 lg:hidden" />
-      <div className="lg:mt-auto">
+      <div
+        aria-hidden="true"
+        className="relative z-content surface-stone mt-30 h-10 lg:hidden"
+      />
+      <div className="relative z-content lg:mt-auto">
         <FloorNav projects={projects} />
       </div>
     </section>
