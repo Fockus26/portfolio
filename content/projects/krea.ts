@@ -16,11 +16,11 @@ export const project: Project = {
   role: { es: "Desarrollo completo.", en: "Full development." },
   stack: ["Next.js", "TypeScript", "Postgres", "Drizzle", "Tailwind"],
   links: [
-    { type: "live", url: "https://krea-hazel.vercel.app" },
+    { type: "demo", url: "https://krea-hazel.vercel.app" },
     { type: "code", url: "https://github.com/Fockus26/krea" },
   ],
   media: {
-    format: "phone",
+    format: "desktop",
     video: "/work/krea/loop",
     poster: "/work/krea/poster.jpg",
   },

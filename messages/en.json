@@ -41,6 +41,15 @@
     "retry": "Try again",
     "posterTag": "Placeholder poster"
   },
+  "Room": {
+    "role": "Role: {role}",
+    "links": {
+      "live": "View site",
+      "demo": "View demo",
+      "code": "View code",
+      "case-study": "Case study"
+    }
+  },
   "Sections": {
     "entrance": "Home",
     "about": "About",

@@ -18,7 +18,7 @@ export const project: Project = {
     en: "Own product: concept and full development.",
   },
   stack: ["Next.js", "TypeScript", "Supabase", "Postgres", "Web Audio API"],
-  links: [{ type: "live", url: "https://melao-two.vercel.app" }],
+  links: [{ type: "demo", url: "https://melao-two.vercel.app" }],
   media: {
     format: "phone",
     video: "/work/melao/loop",
