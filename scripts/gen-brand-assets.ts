@@ -38,7 +38,7 @@ type Letters = { d: string; width: number; minX: number };
 function letters(capPx: number, tracking: number): Letters {
   const size = (capPx * font.unitsPerEm) / capUnits;
   let x = 0;
-  const paths: opentype.Path[] = [];
+  const paths: InstanceType<typeof opentype.Path>[] = [];
   const chars = ["C", "L"];
   chars.forEach((ch, i) => {
     const glyph = font.charToGlyph(ch);
