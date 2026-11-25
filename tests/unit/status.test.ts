@@ -5,6 +5,8 @@ import {
   isStatusVariant,
   localeFromPath,
   pickErrorVariant,
+  STATUS_VARIANTS,
+  statusLight,
   statusTitle,
 } from "@/lib/status";
 
@@ -51,4 +53,29 @@ test("variants are recognised by name", () => {
 
 test("'Copiado' stays 2 seconds (HANDOFF § 2.12)", () => {
   expect(COPIED_MS).toBe(2000);
+});
+
+test("the 404 and the 500 carry the band of the § 5b table, the offline screen none", () => {
+  const nf = statusLight("not-found");
+  expect(nf?.angle).toBe(-22);
+  expect(nf?.left).toEqual({ lg: 84, sm: 150 });
+  expect(nf?.width).toEqual({ lg: 360, sm: 135 });
+  expect(nf?.tint).toBe("light-p02");
+  const err = statusLight("error");
+  expect(err?.angle).toBe(-42);
+  expect(err?.left).toEqual({ lg: 108, sm: 230 });
+  expect(err?.width).toEqual({ lg: 300, sm: 115 });
+  expect(err?.tint).toBe("light-p07");
+  expect(statusLight("error-no-code")).toBe(err);
+  expect(statusLight("offline")).toBeUndefined();
+});
+
+test("every tint is a token that exists in globals.css, never a hex", async () => {
+  const css = await Bun.file("app/globals.css").text();
+  for (const variant of STATUS_VARIANTS) {
+    const light = statusLight(variant);
+    if (!light) continue;
+    expect(light.tint).not.toContain("#");
+    expect(css).toContain(`--color-${light.tint}:`);
+  }
 });
