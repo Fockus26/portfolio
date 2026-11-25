@@ -15,7 +15,11 @@
   },
   "Entrance": {
     "name": "César León",
-    "line": "Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días."
+    "line": "Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días.",
+    "support": "Nueve proyectos reales, de una iglesia que recibe aportes en línea a una app para aprender a bailar.",
+    "contact": "Contacto",
+    "projects": "Ver proyectos",
+    "floorLabel": "Proyectos"
   },
   "TextLink": {
     "external": "{label} (se abre en otra pestaña)",
