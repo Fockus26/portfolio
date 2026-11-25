@@ -1,7 +1,10 @@
 {
   "Metadata": {
     "title": "César León",
-    "description": "I build websites, apps and chatbots that people use every day. Nine real projects, from a church that takes contributions online to an app for learning to dance."
+    "description": "I build websites, apps and chatbots that people use every day. Nine real projects, from a church that takes contributions online to an app for learning to dance.",
+    "ogTagline": "Nine real projects",
+    "ogAlt": "César León's portfolio image with his name and the line “I build websites, apps and chatbots that people use every day.”",
+    "jobTitle": "Web, app and chatbot developer"
   },
   "Layout": {
     "skipLink": "Skip to content"

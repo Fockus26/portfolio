@@ -5,7 +5,10 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { SiteHeader } from "@/components/sections/SiteHeader";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { contact } from "@/content/contact";
 import { routing } from "@/i18n/routing";
+import { siteJsonLd } from "@/lib/seo";
 import { OG_LOCALES, SECTION_IDS, SITE_URL } from "@/lib/site";
 import "../globals.css";
 
@@ -67,6 +70,15 @@ export default async function LocaleLayout({
 }: LayoutProps<"/[locale]">) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const jsonLd = siteJsonLd({
+    locale,
+    siteUrl: SITE_URL,
+    siteName: t("title"),
+    description: t("description"),
+    jobTitle: t("jobTitle"),
+    contact,
+  });
 
   return (
     <html
@@ -74,6 +86,7 @@ export default async function LocaleLayout({
       className={`${schibsted.variable} ${plexMono.variable} antialiased`}
     >
       <body>
+        <JsonLd data={jsonLd} />
         <NextIntlClientProvider>
           <SkipLink />
           <SiteHeader />
