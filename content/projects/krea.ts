@@ -16,7 +16,7 @@ export const project: Project = {
   role: { es: "Desarrollo completo.", en: "Full development." },
   stack: ["Next.js", "TypeScript", "Postgres", "Drizzle", "Tailwind"],
   links: [
-    { type: "demo", url: "https://krea-hazel.vercel.app" },
+    { type: "live", url: "https://krea.fockus.dev" },
     { type: "code", url: "https://github.com/Fockus26/krea" },
   ],
   media: {
