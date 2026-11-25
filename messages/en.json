@@ -84,5 +84,38 @@
     "projects": "Projects",
     "here": "You are here",
     "close": "Close the index"
+  },
+  "Status": {
+    "notFound": {
+      "label": "Error 404",
+      "title": "This page does not exist.",
+      "line": "The address you opened does not lead anywhere. The link may be misspelled or the page may have moved.",
+      "home": "Go to the home page",
+      "contact": "Contact"
+    },
+    "error": {
+      "label": "Site error",
+      "title": "Something failed on our side.",
+      "line": "It is not your connection or your device. Try again; if it stays the same, send me this code and I will look into it.",
+      "lineNoCode": "It is not your connection or your device. Try again in a moment; if it stays the same, write to me and I will look into it.",
+      "retry": "Try again",
+      "retrying": "Trying again",
+      "home": "Go to the home page"
+    },
+    "offline": {
+      "label": "No connection",
+      "title": "There is no internet connection.",
+      "line": "The page reloads by itself when the connection comes back. Meanwhile, check this:",
+      "tipWifi": "That wifi or mobile data is on.",
+      "tipAirplane": "That airplane mode is off.",
+      "retry": "Try again",
+      "retrying": "Trying again"
+    },
+    "copyCode": {
+      "label": "Code",
+      "copy": "Copy code",
+      "copied": "Copied",
+      "fallback": "Select and copy the code"
+    }
   }
 }
