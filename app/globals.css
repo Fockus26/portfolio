@@ -204,6 +204,14 @@
   --dur-loading-line: 1200ms;
   --dur-spinner: 800ms;
 
+  /* The entrance's first paint (HANDOFF § 6.3, D027): the text waits for the light */
+  --delay-entrance: 200ms;
+  --stagger-entrance: 80ms;
+  --entrance-band-shift: 8vw; /* the band arrives from the right */
+
+  /* A project room's scroll track at >=1024 with motion allowed (HANDOFF § 6.1, D027) */
+  --track-h: 200svh;
+
   --z-light: 0;
   --z-content: 10;
   --z-window-open: 20;
@@ -320,6 +328,14 @@
 @keyframes sheet-out {
   to {
     transform: translateY(100%);
+  }
+}
+
+/* The entrance's light band arriving (HANDOFF § 6.3); `translate` adds to its skew */
+@keyframes band-arrive {
+  from {
+    opacity: 0;
+    translate: var(--entrance-band-shift) 0;
   }
 }
 
@@ -496,6 +512,51 @@
   /* Never both: while the fixed layer runs, the per-section bands step aside */
   :root[data-light-layer] .light-band-static {
     display: none;
+  }
+
+  /*
+   * A project room (HANDOFF § 6.1, D024). At >=1024 with motion allowed the section is a
+   * 200svh track and the room's grid is its sticky stage, one viewport tall; the window
+   * opens inside the stage (components/ui/RoomChoreography.tsx). A room whose content does
+   * not fit one viewport is opted out by the driver with `data-room-static` (D025). Below
+   * 1024, under reduced motion or opted out, the room is the static one-viewport grid.
+   * The section keeps `overflow: clip` (not hidden), which is what lets the stage stick.
+   */
+  .room-stage {
+    position: relative;
+  }
+  @media (min-width: 64rem) and (prefers-reduced-motion: no-preference) {
+    .room-track:not([data-room-static]) {
+      min-height: var(--track-h);
+    }
+    .room-track:not([data-room-static]) > .room-stage {
+      position: sticky;
+      top: 0;
+    }
+  }
+
+  /*
+   * The entrance's one orchestrated moment (HANDOFF § 6.3, D026): on the server markup, so
+   * it starts with the first paint. The band arrives; after 200ms the four text items fade
+   * in, 80ms apart. Under reduced motion nothing animates: everything is there.
+   */
+  @media (prefers-reduced-motion: no-preference) {
+    .entrance-band {
+      animation: band-arrive var(--dur-entrance) var(--ease-out) both;
+    }
+    .entrance-items > * {
+      animation: fade-in var(--dur-slow) var(--ease-out) both;
+      animation-delay: var(--delay-entrance);
+    }
+    .entrance-items > :nth-child(2) {
+      animation-delay: calc(var(--delay-entrance) + var(--stagger-entrance));
+    }
+    .entrance-items > :nth-child(3) {
+      animation-delay: calc(var(--delay-entrance) + 2 * var(--stagger-entrance));
+    }
+    .entrance-items > :nth-child(4) {
+      animation-delay: calc(var(--delay-entrance) + 3 * var(--stagger-entrance));
+    }
   }
 }
 

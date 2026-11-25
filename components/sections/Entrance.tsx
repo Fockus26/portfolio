@@ -11,9 +11,10 @@ type EntranceProps = {
   projects: ReadonlyArray<{ order: number; name: string }>;
 };
 
-// The entrance (HANDOFF § 3 · 1): the name, what César does, and the two ways on. Static
-// version: the first-paint moment (§ 6.3) arrives with the choreography. The light band
-// stays under the content and under the stone floor, as in the artboards.
+// The entrance (HANDOFF § 3 · 1): the name, what César does, and the two ways on. The light
+// band stays under the content and under the stone floor, as in the artboards. Its first
+// paint is the page's one orchestrated moment (§ 6.3): CSS on this server markup
+// (`entrance-band`, `entrance-items` in app/globals.css), so it never waits for hydration.
 export function Entrance({ projects }: EntranceProps) {
   const t = useTranslations("Entrance");
   const first = projects[0];
@@ -23,9 +24,9 @@ export function Entrance({ projects }: EntranceProps) {
       id={SECTION_IDS.entrance}
       className="page-section relative flex flex-col overflow-clip lg:entrance-h"
     >
-      <LightBand sectionId={SECTION_IDS.entrance} />
+      <LightBand sectionId={SECTION_IDS.entrance} className="entrance-band" />
       <div className="relative z-content container-page grid-page pt-30 lg:pt-34 lg:pb-10">
-        <div className="col-span-full lg:col-span-9">
+        <div className="entrance-items col-span-full lg:col-span-9">
           <h1 className="text-display text-balance">{t("name")}</h1>
           <p className="mt-10 max-w-line text-h4 text-balance">{t("line")}</p>
           <p className="mt-4 max-w-support">{t("support")}</p>
