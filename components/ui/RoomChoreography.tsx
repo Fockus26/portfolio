@@ -310,7 +310,8 @@ export function RoomChoreography() {
           box.bottom <= window.innerHeight;
         if (whole) return;
         window.scrollTo({
-          top: y < room.top + room.travel / 2 ? room.top : room.top + room.travel,
+          top:
+            y < room.top + room.travel / 2 ? room.top : room.top + room.travel,
         });
       });
     }

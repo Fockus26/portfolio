@@ -198,7 +198,9 @@ export function revealOpacity(t: number): number {
 
 /** § 6.1: radius 2px → 0 at t = 1, for 16:9 windows only. */
 export function windowRadius(t: number, format: WindowFormat): number {
-  return format === "desktop" ? WINDOW_RADIUS * (1 - clamp01(t)) : WINDOW_RADIUS;
+  return format === "desktop"
+    ? WINDOW_RADIUS * (1 - clamp01(t))
+    : WINDOW_RADIUS;
 }
 
 export type WindowFrame = {

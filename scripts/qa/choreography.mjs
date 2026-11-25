@@ -110,7 +110,9 @@ async function sampleRoom(page, id, ps) {
           viewTop: f.top,
           inlinePosition: figure.style.position,
           background: style.backgroundColor,
-          radius: Number.parseFloat(getComputedStyle(screen).borderTopLeftRadius),
+          radius: Number.parseFloat(
+            getComputedStyle(screen).borderTopLeftRadius,
+          ),
           zIndex: style.zIndex,
           texts: texts.map((block) => {
             const cs = getComputedStyle(block);
@@ -155,7 +157,10 @@ for (const viewport of DESKTOP) {
       continue;
     }
     check(room.position === "sticky", `${tag} ${id} stage not sticky`);
-    check(near(room.travel, viewport.height), `${tag} ${id} travel ${room.travel}`);
+    check(
+      near(room.travel, viewport.height),
+      `${tag} ${id} travel ${room.travel}`,
+    );
     const slot = room.samples[0].rect;
     const full = fullRect({
       format: room.format,
@@ -201,12 +206,17 @@ for (const viewport of DESKTOP) {
         sample.viewTop >= room.header - TOL,
         `${label} window top ${fmt(sample.viewTop)} above the header`,
       );
-      check(sample.hscroll === 0, `${label} horizontal scroll ${sample.hscroll}`);
+      check(
+        sample.hscroll === 0,
+        `${label} horizontal scroll ${sample.hscroll}`,
+      );
       rows.push(
         `p=${sample.p} t=${fmt(t)} rect=${fmt(sample.rect.left)},${fmt(sample.rect.top)} ${fmt(sample.rect.width)}×${fmt(sample.rect.height)} reveal=${fmt(alphaOf(sample.background))} r=${sample.radius} text=${fmt(sample.texts[0].opacity)}`,
       );
     }
-    log(`${tag} ${id} (${room.format}) S=${fmt(slot.left)},${fmt(slot.top)} ${fmt(slot.width)}×${fmt(slot.height)} F=${fmt(full.left)},${fmt(full.top)} ${fmt(full.width)}×${fmt(full.height)}`);
+    log(
+      `${tag} ${id} (${room.format}) S=${fmt(slot.left)},${fmt(slot.top)} ${fmt(slot.width)}×${fmt(slot.height)} F=${fmt(full.left)},${fmt(full.top)} ${fmt(full.width)}×${fmt(full.height)}`,
+    );
     for (const row of rows) log(`  ${row}`);
   }
 
@@ -219,7 +229,8 @@ for (const viewport of DESKTOP) {
       const wait = () => new Promise((resolve) => setTimeout(resolve, 150));
       const track = document.getElementById("p04");
       const top = track.getBoundingClientRect().top + window.scrollY;
-      const travel = track.offsetHeight - track.querySelector(".room-stage").offsetHeight;
+      const travel =
+        track.offsetHeight - track.querySelector(".room-stage").offsetHeight;
       const seen = [];
       for (const p of [0, 0.3, 0.6, 0.99]) {
         window.scrollTo(0, top + p * travel);
@@ -245,7 +256,17 @@ for (const viewport of DESKTOP) {
   const { context, page } = await open(viewport, "reduce");
   const tag = `${viewport.width}×${viewport.height} reduce`;
   const heights = [];
-  for (const id of ["p01", "p02", "p03", "p04", "p05", "p06", "p07", "p08", "p09"]) {
+  for (const id of [
+    "p01",
+    "p02",
+    "p03",
+    "p04",
+    "p05",
+    "p06",
+    "p07",
+    "p08",
+    "p09",
+  ]) {
     const room = await sampleRoom(page, id, [0, 0.5, 1]);
     const height = await page.evaluate(
       (id) => document.getElementById(id).offsetHeight,
@@ -254,11 +275,16 @@ for (const viewport of DESKTOP) {
     heights.push(`${id}=${height}`);
     check(room.position !== "sticky", `${tag} ${id} sticky`);
     check(room.travel === 0, `${tag} ${id} has a track (${room.travel})`);
-    check(height >= viewport.height - TOL, `${tag} ${id} shorter than a viewport`);
+    check(
+      height >= viewport.height - TOL,
+      `${tag} ${id} shorter than a viewport`,
+    );
     for (const sample of room.samples) {
       check(sample.inlinePosition === "", `${tag} ${id} window moved`);
       check(
-        sample.texts.every((t) => t.opacity === 1 && t.visibility === "visible"),
+        sample.texts.every(
+          (t) => t.opacity === 1 && t.visibility === "visible",
+        ),
         `${tag} ${id} text not visible`,
       );
     }
@@ -288,7 +314,8 @@ for (const viewport of DESKTOP) {
       };
     }),
   );
-  for (const room of rooms) check(room.clipped === 0, `1280×600 ${room.id} clipped`);
+  for (const room of rooms)
+    check(room.clipped === 0, `1280×600 ${room.id} clipped`);
   log(
     `1280×600: ${rooms.map((r) => `${r.id}:${r.isStatic ? "static" : "track"}`).join(" ")}`,
   );
@@ -367,7 +394,8 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     const seen = [];
     for (const sample of samples) {
       const match = sample.clip.match(/inset\(([\d.]+)%/);
-      const inset = sample.clip === "none" ? 0 : match ? Number(match[1]) : Number.NaN;
+      const inset =
+        sample.clip === "none" ? 0 : match ? Number(match[1]) : Number.NaN;
       const want =
         reducedMotion === "reduce"
           ? 0
@@ -412,7 +440,11 @@ const sampler = () => {
     if (!band) return null;
     const cs = getComputedStyle(band);
     const shown = cs.display !== "none" && cs.visibility === "visible";
-    return { shown, opacity: Number(cs.opacity), x: band.getBoundingClientRect().left };
+    return {
+      shown,
+      opacity: Number(cs.opacity),
+      x: band.getBoundingClientRect().left,
+    };
   }
   function tick() {
     const staticBand = document.querySelector(".entrance-band");
@@ -421,9 +453,11 @@ const sampler = () => {
         at: performance.now() - started,
         static: read(staticBand),
         // The layer's wrapper, not <html>, which carries the same attribute once it runs
-        layer: read(document.querySelector("div[data-light-layer] > .light-band")),
-        items: [...document.querySelectorAll(".entrance-items > *")].map((item) =>
-          Number(getComputedStyle(item).opacity),
+        layer: read(
+          document.querySelector("div[data-light-layer] > .light-band"),
+        ),
+        items: [...document.querySelectorAll(".entrance-items > *")].map(
+          (item) => Number(getComputedStyle(item).opacity),
         ),
       });
     }
@@ -447,8 +481,13 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
       first.static.shown && first.static.opacity === 1,
       `${tag}: band not final on the first frame`,
     );
-    check(first.items.every((o) => o === 1), `${tag}: text not visible on the first frame`);
-    log(`${tag}: first frame band opacity ${first.static.opacity}, items ${first.items.join(",")}`);
+    check(
+      first.items.every((o) => o === 1),
+      `${tag}: text not visible on the first frame`,
+    );
+    log(
+      `${tag}: first frame band opacity ${first.static.opacity}, items ${first.items.join(",")}`,
+    );
   } else {
     let lastX = Number.POSITIVE_INFINITY;
     let lastOpacity = 0;
@@ -456,11 +495,20 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     const reachedAt = [-1, -1, -1, -1];
     samples.forEach((sample, index) => {
       const visible = [sample.static, sample.layer].filter((b) => b?.shown);
-      check(visible.length === 1, `${tag} frame ${index}: ${visible.length} bands visible`);
+      check(
+        visible.length === 1,
+        `${tag} frame ${index}: ${visible.length} bands visible`,
+      );
       const band = visible[0];
       if (band) {
-        check(band.x <= lastX + TOL, `${tag} frame ${index}: x went back ${fmt(lastX)} → ${fmt(band.x)}`);
-        check(band.opacity >= lastOpacity - 0.001, `${tag} frame ${index}: opacity went back`);
+        check(
+          band.x <= lastX + TOL,
+          `${tag} frame ${index}: x went back ${fmt(lastX)} → ${fmt(band.x)}`,
+        );
+        check(
+          band.opacity >= lastOpacity - 0.001,
+          `${tag} frame ${index}: opacity went back`,
+        );
         lastX = Math.min(lastX, band.x);
         lastOpacity = Math.max(lastOpacity, band.opacity);
         if (handover < 0 && band === sample.layer) handover = sample.at;
@@ -469,7 +517,10 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
         if (reachedAt[i] < 0 && o >= 0.999) reachedAt[i] = sample.at;
       });
     });
-    check(reachedAt.every((at) => at >= 0), `${tag}: an item never reached opacity 1`);
+    check(
+      reachedAt.every((at) => at >= 0),
+      `${tag}: an item never reached opacity 1`,
+    );
     check(
       reachedAt.every((at, i) => i === 0 || at >= reachedAt[i - 1]),
       `${tag}: items out of order ${reachedAt.map(fmt).join(",")}`,
@@ -535,12 +586,16 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
     const track = document.getElementById("p05");
     const top = track.getBoundingClientRect().top + window.scrollY;
     window.scrollTo(0, top);
-    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    await new Promise((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(resolve)),
+    );
     track.querySelector("a").focus();
     // The visitor scrolls on later, with the focus still there
     await new Promise((resolve) => setTimeout(resolve, 300));
     window.scrollTo(0, top + 0.5 * window.innerHeight);
-    await new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+    await new Promise((resolve) =>
+      requestAnimationFrame(() => requestAnimationFrame(resolve)),
+    );
     const el = document.activeElement;
     root.style.scrollSnapType = "";
     root.style.scrollBehavior = "";
@@ -572,10 +627,14 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
       };
     }, id);
     check(
-      near(landed.offset, 0, 2) && landed.opacity === 1 && landed.focus === `${id}-title`,
+      near(landed.offset, 0, 2) &&
+        landed.opacity === 1 &&
+        landed.focus === `${id}-title`,
       `anchor ${id}: offset ${fmt(landed.offset)} opacity ${landed.opacity} focus ${landed.focus}`,
     );
-    log(`anchor #${id}: track top at ${fmt(landed.offset)}px, text ${landed.opacity}, focus ${landed.focus}`);
+    log(
+      `anchor #${id}: track top at ${fmt(landed.offset)}px, text ${landed.opacity}, focus ${landed.focus}`,
+    );
   }
 
   // A real wheel halfway through a track: proximity snap must not pull it back
@@ -601,7 +660,9 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
       Math.abs(offset - distance) <= 40,
       `wheel ${distance}px into ${id} rested at ${fmt(offset)}px`,
     );
-    log(`wheel ${distance}px into ${id}: rests at ${fmt(offset)}px (p ${fmt(offset / 900)})`);
+    log(
+      `wheel ${distance}px into ${id}: rests at ${fmt(offset)}px (p ${fmt(offset / 900)})`,
+    );
   }
 
   // Space, PageDown, arrows, Home and End scroll natively
@@ -611,7 +672,14 @@ for (const reducedMotion of ["no-preference", "reduce"]) {
   });
   await page.waitForTimeout(400);
   const keys = [];
-  for (const key of ["Space", "PageDown", "ArrowDown", "ArrowUp", "End", "Home"]) {
+  for (const key of [
+    "Space",
+    "PageDown",
+    "ArrowDown",
+    "ArrowUp",
+    "End",
+    "Home",
+  ]) {
     const before = await page.evaluate(() => window.scrollY);
     await page.keyboard.press(key);
     await page.waitForTimeout(2500);

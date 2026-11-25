@@ -552,10 +552,18 @@
       animation-delay: calc(var(--delay-entrance) + var(--stagger-entrance));
     }
     .entrance-items > :nth-child(3) {
-      animation-delay: calc(var(--delay-entrance) + 2 * var(--stagger-entrance));
+      animation-delay: calc(
+        var(--delay-entrance) +
+        2 *
+        var(--stagger-entrance)
+      );
     }
     .entrance-items > :nth-child(4) {
-      animation-delay: calc(var(--delay-entrance) + 3 * var(--stagger-entrance));
+      animation-delay: calc(
+        var(--delay-entrance) +
+        3 *
+        var(--stagger-entrance)
+      );
     }
   }
 }
