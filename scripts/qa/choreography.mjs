@@ -302,7 +302,8 @@ for (const viewport of DESKTOP) {
   });
   let reached = 0;
   for (let i = 0; i < links; i++) {
-    await page.waitForTimeout(450);
+    // The focus scroll is smooth with motion allowed: let it settle
+    await page.waitForTimeout(1000);
     const state = await page.evaluate(() => {
       const el = document.activeElement;
       const r = el.getBoundingClientRect();

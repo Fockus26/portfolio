@@ -1,4 +1,4 @@
-# D002 · Layout · Animación con Motion y scroll nativo con snap de proximidad · Pending
+# D002 · Layout · Animación con Motion y scroll nativo con snap de proximidad · Implemented → D024
 
 **Decision:** un proyecto por pantalla con `scroll-snap` de proximidad; las coreografías
 (apertura del ventanal, entrada del texto, la luz) se atan al progreso de scroll con Motion
@@ -7,3 +7,5 @@
 llamativas; el scroll nativo mantiene teclado, lectores de pantalla y `prefers-reduced-motion`.
 **Discarded alternative:** secuestrar el scroll con una librería de scroll suave (rompe
 accesibilidad y el gesto en móvil).
+**Implemented (2026-11-24):** el scroll nativo con snap de proximidad, tal cual; las
+coreografías, sin Motion, con el driver propio de D024 (y la luz con D017).
