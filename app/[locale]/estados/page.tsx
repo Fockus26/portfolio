@@ -29,7 +29,6 @@ async function Gallery({
       <StatusScreenView
         variant={value}
         code={value === "error" ? SAMPLE_CODE : undefined}
-        onRetry={() => {}}
       />
     );
   }
