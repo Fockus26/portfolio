@@ -1,6 +1,8 @@
 // Pure logic of the status screens (HANDOFF § 5b): which variant shows for which failure,
 // the document title and the language of the screen that has no providers.
 
+import type { LightKey } from "@/lib/light";
+
 export const STATUS_VARIANTS = [
   "not-found",
   "error",
@@ -49,4 +51,30 @@ export function statusTitle(label: string): string {
 /** The language of a path that has no next-intl around it (`/en/x` → en, else es). */
 export function localeFromPath(pathname: string): "es" | "en" {
   return pathname.split("/")[1] === "en" ? "en" : "es";
+}
+
+// The static light band of the status screens (HANDOFF § 5b, "LightBand" column): one key
+// per variant that has light, the offline screen has none (§ 2.7). Tints by token name.
+const NOT_FOUND_LIGHT: LightKey = {
+  id: "not-found",
+  angle: -22,
+  left: { lg: 84, sm: 150 },
+  width: { lg: 360, sm: 135 },
+  tint: "light-p02",
+  surface: "wall",
+};
+
+const ERROR_LIGHT: LightKey = {
+  id: "error",
+  angle: -42,
+  left: { lg: 108, sm: 230 },
+  width: { lg: 300, sm: 115 },
+  tint: "light-p07",
+  surface: "wall",
+};
+
+export function statusLight(variant: StatusVariant): LightKey | undefined {
+  if (variant === "not-found") return NOT_FOUND_LIGHT;
+  if (variant === "offline") return undefined;
+  return ERROR_LIGHT;
 }

@@ -1,6 +1,7 @@
 import { Search, TriangleAlert, WifiOff } from "lucide-react";
 import type { ReactNode, Ref } from "react";
-import type { StatusVariant } from "@/lib/status";
+import { bandVars } from "@/lib/light";
+import { type StatusVariant, statusLight } from "@/lib/status";
 import { cn } from "@/lib/utils";
 
 type StatusScreenProps = {
@@ -36,8 +37,8 @@ const OFFSETS = {
 } as const;
 
 // The one layout of the four status screens (HANDOFF § 5b). It sits inside the layout's
-// <main>, so the title is the page's <h1>. The root clips its overflow so a light band can
-// be added later (wave 2); there is none yet. `data-status-screen` is what the header looks
+// <main>, so the title is the page's <h1>. The root clips its overflow and holds the static
+// light band of the 404 and the 500 (none offline). `data-status-screen` is what the header looks
 // for to show only the wordmark and the language.
 export function StatusScreen({
   variant,
@@ -50,15 +51,23 @@ export function StatusScreen({
   titleRef,
 }: StatusScreenProps) {
   const { Icon, className: iconColor } = ICONS[variant];
+  const light = statusLight(variant);
 
   return (
     <div
       data-status-screen={variant}
-      className="relative isolate overflow-hidden"
+      className="relative isolate min-h-svh overflow-hidden"
     >
+      {light && (
+        <div
+          aria-hidden="true"
+          className="light-band"
+          style={bandVars(light)}
+        />
+      )}
       <div
         className={cn(
-          "container-page grid-page pt-[calc(var(--spacing-header)+--spacing(34))] pb-24 md:pt-[calc(var(--spacing-header)+--spacing(28))]",
+          "relative z-content container-page grid-page pt-[calc(var(--spacing-header)+--spacing(34))] pb-24 md:pt-[calc(var(--spacing-header)+--spacing(28))]",
           OFFSETS[variant],
         )}
       >
