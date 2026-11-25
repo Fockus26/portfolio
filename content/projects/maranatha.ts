@@ -16,7 +16,7 @@ export const project: Project = {
   role: { es: "Desarrollo completo.", en: "Full development." },
   stack: ["Next.js", "TypeScript", "Postgres", "Tailwind", "PayPal"],
   links: [
-    { type: "live", url: "https://maranatha-pi.vercel.app" },
+    { type: "live", url: "https://maranathasancristobal.com" },
     { type: "code", url: "https://github.com/Fockus26/maranatha" },
   ],
   media: {
