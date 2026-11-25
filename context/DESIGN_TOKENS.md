@@ -69,6 +69,14 @@ See `DESIGN_RULES.md` — they must match exactly; this file does not redefine t
 | dur-entrance | 900ms | llegada de la franja de luz en la primera carga |
 | ease-out | `cubic-bezier(.2,.7,.2,1)` | todo lo que entra |
 | ease-in-out | `cubic-bezier(.65,0,.35,1)` | curva aplicada al progreso de scroll de la ventana |
+| delay-entrance | 200ms | espera del texto de la entrada tras la llegada de la luz (§ 6.3, D027) |
+| stagger-entrance | 80ms | escalonado entre nombre, línea, apoyo y botones de la entrada (§ 6.3, D027) |
+| entrance-band-shift | 8vw | desplazamiento desde el que llega la banda de la entrada (§ 6.3, D027) |
+| track-h | 200svh | alto de la pista de scroll de una sala, ≥1024 con movimiento (§ 6.1, D027) |
+
+Los umbrales de `p` y `t`, el recorte apilado de 12 % y los 48 / 24 / −16px de la apertura
+(pasos exactos de espaciado 12 / 6 / 4) son datos de `lib/choreography.ts`, con su prueba,
+no tokens de CSS: solo los lee el driver (D027).
 
 `animate-spinner` gira el `LoaderCircle` (una vuelta cada 800ms, lineal; se detiene con
 movimiento reducido).

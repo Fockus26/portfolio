@@ -1,6 +1,7 @@
 "use client";
 
-import { useLayoutEffect, useRef, useSyncExternalStore } from "react";
+import { useLayoutEffect, useRef } from "react";
+import { useHydrated } from "@/hooks/useHydrated";
 import { MEDIA, useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   type BandValues,
@@ -16,17 +17,6 @@ import {
   viewportCoverage,
 } from "@/lib/light";
 import { SECTION_IDS } from "@/lib/site";
-
-const subscribeNever = () => () => {};
-
-/** `true` once the page has hydrated; `false` on the server and while hydrating. */
-function useHydrated(): boolean {
-  return useSyncExternalStore(
-    subscribeNever,
-    () => true,
-    () => false,
-  );
-}
 
 type Measured = {
   positions: number[];
@@ -126,8 +116,33 @@ export function LightBandLayer() {
 
     measure();
     update();
-    // Only now the static bands step aside: the layer already shows the same values
-    root.dataset.lightLayer = "";
+
+    // Only now the static bands step aside: the layer already shows the same values. While
+    // the entrance's band is still arriving on screen (HANDOFF § 6.3, D026) the layer waits
+    // hidden and takes over when that animation ends, so the arrival is never cut.
+    let waiting = true;
+    function takeOver() {
+      if (!waiting || !band) return;
+      waiting = false;
+      band.style.visibility = "";
+      root.dataset.lightLayer = "";
+    }
+    const arriving = document.querySelector<HTMLElement>(".entrance-band");
+    const animations =
+      arriving && arriving.getBoundingClientRect().bottom > 0
+        ? arriving
+            .getAnimations()
+            .filter((animation) => animation.playState !== "finished")
+        : [];
+    if (animations.length > 0) {
+      band.style.visibility = "hidden";
+      Promise.all(animations.map((animation) => animation.finished)).then(
+        takeOver,
+        takeOver,
+      );
+    } else {
+      takeOver();
+    }
 
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", remeasure, { passive: true });
@@ -138,6 +153,8 @@ export function LightBandLayer() {
     }
 
     return () => {
+      waiting = false;
+      band.style.visibility = "";
       delete root.dataset.lightLayer;
       probe.remove();
       window.removeEventListener("scroll", schedule);

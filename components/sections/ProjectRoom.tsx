@@ -30,9 +30,10 @@ const WINDOW_WIDTH: Record<Project["media"]["format"], string> = {
   chat: "w-57 max-w-full md:w-70 lg:window-cap-chat",
 };
 
-// What the browser needs to pick a poster size: the slot is about this wide
+// What the browser needs to pick a poster size: the slot is about this wide; at >=1024 a
+// 16:9 window opens to the full width (§ 6.1)
 const POSTER_SIZES: Record<Project["media"]["format"], string> = {
-  desktop: "(min-width: 64rem) 60vw, 100vw",
+  desktop: "100vw",
   phone: "(min-width: 48rem) 280px, 208px",
   chat: "(min-width: 48rem) 280px, 228px",
 };
@@ -43,10 +44,12 @@ type ProjectRoomProps = {
   total: number;
 };
 
-// One project, one screen (HANDOFF § 2.10 and § 3). Static version: the window stays in
-// its slot; the sticky track and the opening arrive with the scroll choreography (§ 6.1).
-// The section spans the whole viewport so its light band is measured against it; the
-// room's grid sits inside, above the band. `overflow-clip` (not hidden) keeps sticky working.
+// One project, one screen (HANDOFF § 2.10 and § 3). The section spans the whole viewport so
+// its light band is measured against it; the room's grid sits inside, above the band. At
+// >=1024 with motion allowed the section is the room's scroll track and the grid its sticky
+// stage (`room-track`, `room-stage`); RoomChoreography opens the window and moves the text
+// (§ 6.1, § 6.2), finding them by their data attributes. `overflow-clip` (not hidden) keeps
+// sticky working.
 export function ProjectRoom({ project, total }: ProjectRoomProps) {
   const t = useTranslations("Room");
   const locale = useLocale() as "es" | "en";
@@ -60,14 +63,15 @@ export function ProjectRoom({ project, total }: ProjectRoomProps) {
     <section
       id={id}
       aria-labelledby={titleId}
-      className="page-section relative overflow-clip"
+      className="page-section room-track relative overflow-clip"
     >
       <LightBand sectionId={id} />
       <div
         style={roomVars(layout) as CSSProperties}
-        className="relative z-content container-page py-18 lg:grid-page lg:room-rows lg:min-h-svh lg:pt-header lg:pb-0"
+        className="room-stage z-content container-page py-18 lg:grid-page lg:room-rows lg:min-h-svh lg:pt-header lg:pb-0"
       >
         <div
+          data-room-text=""
           className={cn(
             "md:max-w-140 lg:col-(--room-text) lg:row-start-2 lg:max-w-none",
             layout.text.pad && "lg:pl-10",
@@ -89,6 +93,7 @@ export function ProjectRoom({ project, total }: ProjectRoomProps) {
         </div>
 
         <div
+          data-room-slot={project.media.format}
           className={cn(
             "mt-8 lg:col-(--room-window) lg:mx-0 lg:mt-0",
             WINDOW_ROWS[layout.align.at],
@@ -115,6 +120,7 @@ export function ProjectRoom({ project, total }: ProjectRoomProps) {
         </div>
 
         <p
+          data-room-text=""
           className={cn(
             "mt-8 text-h5 text-balance md:max-w-140 lg:col-(--room-text) lg:row-start-3 lg:mt-10 lg:max-w-none",
             layout.text.pad && "lg:pl-10",
@@ -124,6 +130,7 @@ export function ProjectRoom({ project, total }: ProjectRoomProps) {
         </p>
 
         <div
+          data-room-text=""
           className={cn(
             "mt-4 md:max-w-140 lg:col-(--room-detail) lg:max-w-none",
             split

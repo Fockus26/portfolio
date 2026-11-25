@@ -3,12 +3,14 @@ import { Contact } from "@/components/sections/Contact";
 import { Entrance } from "@/components/sections/Entrance";
 import { ProjectRoom } from "@/components/sections/ProjectRoom";
 import { LightBandLayer } from "@/components/ui/LightBandLayer";
+import { RoomChoreography } from "@/components/ui/RoomChoreography";
 import { VideoProvider } from "@/components/ui/VideoProvider";
 import { projects } from "@/content/projects";
 
 // The whole page: entrance, nine rooms, about and contact. Each section brings its static
 // light band; with motion allowed the fixed layer takes over. It goes last so that it is
-// drawn over the sections' backgrounds and under their content (HANDOFF § 6.4).
+// drawn over the sections' backgrounds and under their content (HANDOFF § 6.4). The rooms'
+// scroll choreography (§ 6.1, § 6.2) is one driver for the whole page and renders nothing.
 export default function Home() {
   return (
     <>
@@ -25,6 +27,7 @@ export default function Home() {
       <About />
       <Contact />
       <LightBandLayer />
+      <RoomChoreography />
     </>
   );
 }

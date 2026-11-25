@@ -41,7 +41,7 @@ re-litigate it) and open only what comes up.
 - Next.js 16 (App Router) + strict **TypeScript**
 - **Component library:** shadcn/ui · **Styling:** Tailwind v4 — only one
 - **bun** for everything — never npm, yarn or pnpm
-- `next-intl` (`/es`, `/en`) · Motion (`motion/react`) · no database, auth or payments
+- `next-intl` (`/es`, `/en`) · no database, auth or payments
 
 ```bash
 bun run build · typecheck · lint

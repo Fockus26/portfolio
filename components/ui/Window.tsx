@@ -147,7 +147,9 @@ export function Window({
         className,
       )}
     >
+      {/* The screen; RoomChoreography makes it fill an opened window (HANDOFF § 6.1) */}
       <div
+        data-window-screen=""
         className={cn(
           "relative overflow-hidden rounded-sm bg-stone",
           RATIO[format],
