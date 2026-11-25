@@ -50,6 +50,15 @@
       "case-study": "Case study"
     }
   },
+  "About": {
+    "statement": "I'm César León, a web developer with about three years building products for real clients.",
+    "paragraphs": {
+      "work": "I work from start to finish: I understand the business, propose the solution, build it and leave it running.",
+      "products": "I build websites, online stores, admin panels, apps and chatbots.",
+      "way": "I speak plainly, deliver in stages, and every step can be seen and tested."
+    },
+    "contact": "Contact"
+  },
   "Contact": {
     "title": "Do you have a project in mind?",
     "line": "Tell me what you need and I'll reply the same day.",
