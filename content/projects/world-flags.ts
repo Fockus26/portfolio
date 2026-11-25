@@ -10,8 +10,8 @@ export const project: Project = {
     en: "Learn the world's countries, flags and capitals by playing daily.",
   },
   summary: {
-    es: "Quien juega memoriza los 197 países, sus banderas y capitales con prácticas cortas que repiten lo que está por olvidar. Su progreso lo sigue del teléfono al computador, funciona sin conexión y puede competir contra reloj en un ranking público.",
-    en: "Players memorise all 197 countries, their flags and capitals through short sessions that bring back what they are about to forget. Progress follows them from phone to computer, it works offline, and they can race the clock on a public ranking.",
+    es: "Quien juega memoriza 197 países, sus banderas, capitales y lugar en el mapa con prácticas cortas que repiten lo que está por olvidar. Su progreso lo sigue del teléfono al computador, funciona sin conexión y puede competir contra reloj en un ranking público.",
+    en: "Players memorise 197 countries, their flags, capitals and place on the map through short sessions that bring back what they are about to forget. Progress follows them from phone to computer, it works offline, and they can race the clock on a public ranking.",
   },
   role: {
     es: "Producto propio: idea y desarrollo completo.",
@@ -19,7 +19,7 @@ export const project: Project = {
   },
   stack: ["Astro", "React", "TypeScript", "Postgres", "PWA"],
   links: [
-    { type: "demo", url: "https://world-flags-hazel.vercel.app" },
+    { type: "live", url: "https://world-flags.fockus.dev" },
     { type: "code", url: "https://github.com/Fockus26/world-flags" },
   ],
   media: {
