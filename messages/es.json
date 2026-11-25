@@ -1,7 +1,10 @@
 {
   "Metadata": {
     "title": "César León",
-    "description": "Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días. Nueve proyectos reales, de una iglesia que recibe aportes en línea a una app para aprender a bailar."
+    "description": "Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días. Nueve proyectos reales, de una iglesia que recibe aportes en línea a una app para aprender a bailar.",
+    "ogTagline": "Nueve proyectos reales",
+    "ogAlt": "Imagen del portafolio de César León con su nombre y la frase «Desarrollo páginas web, aplicaciones y chatbots que la gente usa todos los días.»",
+    "jobTitle": "Desarrollador de páginas web, aplicaciones y chatbots"
   },
   "Layout": {
     "skipLink": "Saltar al contenido"
