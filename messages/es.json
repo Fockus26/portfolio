@@ -50,6 +50,15 @@
       "case-study": "Caso de estudio"
     }
   },
+  "About": {
+    "statement": "Soy César León, desarrollador web con unos tres años construyendo productos para clientes reales.",
+    "paragraphs": {
+      "work": "Trabajo de principio a fin: entiendo el negocio, propongo la solución, la construyo y la dejo funcionando.",
+      "products": "Hago sitios web, tiendas en línea, paneles administrativos, aplicaciones y chatbots.",
+      "way": "Hablo claro, entrego por etapas y cada avance se puede ver y probar."
+    },
+    "contact": "Contacto"
+  },
   "Sections": {
     "entrance": "Inicio",
     "about": "Sobre mí",
