@@ -1,5 +1,19 @@
 # portfolio
 
+## 0.3.0
+
+### Minor Changes
+
+- d2c3c81: KREA ya muestra el video del portal en uso, y su enlace lleva a la dirección actual del sitio.
+- 1c6b5dd: Maranatha ya muestra el video del sitio en uso, y su enlace lleva al dominio propio de la iglesia.
+- 81b5f1f: World Flags ya muestra el video del juego en uso, y su enlace lleva a su dirección nueva.
+- 482c787: Inversiones JL22 ya muestra el video de la tienda en uso.
+
+### Patch Changes
+
+- 94985c6: El video de World Flags ahora muestra el juego en un computador en lugar de un teléfono.
+- 4ff7c70: El video de Inversiones JL22 ahora muestra las pantallas propias de la tienda: el flujo de estados de un pedido y los permisos de cada rol.
+
 ## 0.2.0
 
 ### Minor Changes
