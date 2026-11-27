@@ -1,5 +1,11 @@
 # portfolio
 
+## 0.4.0
+
+### Minor Changes
+
+- b2954f6: Melao ya muestra el video de la app en uso: el alumno elige qué practicar y el coach le cuenta los pasos.
+
 ## 0.3.0
 
 ### Minor Changes
